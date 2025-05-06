@@ -1,0 +1,46 @@
+Migration from DB2 to Azure Cloud and Replication to Amazon RDS - CloudTern Solutions
+Migration from DB2 to Azure Cloud and Replication to Amazon RDS
+Industry
+Auction
+Project
+Auto Auction
+Client
+America's Auto Auction
+Our Role
+DB2 migration between Clouds
+Technologies
+MS SQL, Azure, AWS, MONGODB, ETL
+In our recent endeavors, we have embarked on a collaborative journey with CloudTern, and our working relationship is proving to be quite positive."
+Ann Marie
+Senior Director
+Company Overview
+America’s Auto Auction, prioritizes top-quality service, operational excellence, and customer loyalty through digital services offering access to a diverse vehicle range. Their journey began by transforming how dealers finance inventory, expanding to emphasize outstanding service. AXLE Funding stands out by leveraging staff expertise, providing significant value. They locally streamline inventory procurement for dealers in all markets. Committed to delivering exceptional national services with a local touch, success is measured by the prosperity and expansion of loyal dealers.
+The Challenge
+The customer is currently managing a database with 38 auction sites in DB2, replicating this data from DB2 to MS SQL on an Azure Virtual Machine via Qlik replication. Simultaneously, they’re deploying log-stream, typically directed to MS SQL in Azure and AWS RDS through Qlik replication.
+This initiative is designed to replicate data across diverse databases for streamlined Tableau reporting in SQL. However, there’s a shift in strategy as the client intends to centralize all their reports on the AWS cloud, necessitating a migration of their reporting infrastructure to a singular AWS-based location.
+The Solution
+Database maintenance and support in AWS Cloud as a service involves the continual upkeep and optimization of databases hosted on Amazon Web Services. AWS offers managed database services like Amazon RDS, handling routine tasks such as backups, patching, and performance monitoring. This ensures data integrity, security, and high availability.
+Additionally, AWS provides automated scaling options to adapt to varying workloads. With built-in features like software updates, automated backups, and 24/7 customer support, AWS streamlines database management, allowing businesses to focus on innovation rather than the operational complexities of database maintenance in the cloud.
+Key Benefits
+Managed Services
+AWS offers managed services like Amazon RDS, taking care of routine database maintenance tasks such as backups, updates, and patch management. This allows them to focus on their applications rather than the underlying infrastructure.
+Reliability & High Availability
+AWS offers a global network of data centers, ensuring high availability and reliability. Server maintenance practices, such as automated backups and updates, contribute to minimizing downtime and ensuring continuous service availability.
+Cost Efficiency
+By utilizing AWS's pay-as-you-go pricing model,  it can optimize costs by paying only for the resources consumed. Server maintenance practices, such as automated scaling and efficient resource management, further contribute to cost-effectiveness.
+Security
+AWS prioritizes security and compliance by maintaining regular servers which include security updates and patches, ensuring that infrastructure is protected against vulnerabilities. Features like encryption, IAM, and VPC contribute to a secure environment.
+Prev
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

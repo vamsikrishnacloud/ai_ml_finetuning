@@ -1,0 +1,44 @@
+Parent Control System - CloudTern Solutions
+Parent Control System
+Industry
+Telecommunications
+Project
+Parental Control System
+Client
+Pareteum
+Our Role
+Full Stack Development
+Technologies
+RestAPI, ReactJS, Typescript, Loopback 4
+"CloudTern has demonstrated adeptness in system construction, exemplifying an unwavering dedication to maintaining elevated standards of professionalism. Their steadfast commitment emphasizes CloudTern's well-established reputation for reliability and expertise."
+David Shifley
+Chief Technology Officer
+Company Overview
+Pareteum, a dominant force in Communications Platform-as-a-Service (CPaaS), expands its influence across diverse sectors in North America, Latin America, Europe, Middle East and Africa, and Asia-Pacific. Specializing in IoT, Cloud, and Mobile services for sectors such as telecom, automobile, ecommerce, and healthcare, Pareteum’s platform seamlessly links individuals and devices globally with a secure, scalable solution. Enabling the seamless transmission of data, voice, video, SMS/text messaging, and media content, this comprehensive approach ensures connectivity and a broad spectrum of communication services, solidifying Pareteum’s pivotal role in the global communications landscape.
+The Challenge
+To oversee parents control the telecommunication services used by their children while enforcing restrictions on voice calls and SMS recipients while regulating data usage. Also to establish a calendar to dictate when children can access services like voice calls, SMS, and data.
+The Solution
+To ensure the digital well-being of children, the parental control system mandates adherence to predefined APIs for all interacting components, encompassing both front-end and back-end functionalities. Communication between these components occurs through a specified set of APIs. The system receives inputs from the core server via the MVNO Admin front-end for administrative tasks and from BSS/OSS using REST API. In the backend, a DRE system platform, OCS, manages operations. Offering various features, the software system empowers parents to oversee their dependents’ use of telecommunications services, including regulating access, contacts, and usage permissions for voice calls, SMS, and data services whenever accessible.
+Key Benefits
+Safety and Security
+Parents can ensure their children only communicate with approved contacts, minimizing exposure to potential risks or harmful content.
+Controlled Usage
+Parents can regulate the amount of time and frequency with which their children use telecom services, promoting healthy usage habits and limiting overuse.
+Privacy Protection
+By managing who their children communicate with, parents can safeguard their family's privacy and prevent unwanted contact.
+Educational Supervision
+Parents can use the control system to monitor and guide their children's telecom usage, facilitating responsible and productive online behavior.
+Prev
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

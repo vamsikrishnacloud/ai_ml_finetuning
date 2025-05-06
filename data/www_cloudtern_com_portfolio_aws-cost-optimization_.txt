@@ -1,0 +1,46 @@
+AWS Cost Optimization - CloudTern Solutions
+AWS Cost Optimization
+Project Name
+AWS Cost Optimization
+Client
+Armedia LLC
+Our Role
+DevOps Solution
+A leading US-based software solutions company chose Cloudtern for its cloud optimization strategies. Cloudtern designed a perfect cloud optimization strategy that helped the company to efficiently manage cloud operations while significantly reducing cloud usage costs.
+The Challenge
+With deep industry and domain expertise and partnerships with leading vendors, the company was able to deliver high value and measurable results to hundreds of customers that helped them to quickly grow and expand their operational base.
+To improve operational efficiencies and mobilize IT solutions, the company switched to cloud solutions and migrated their IT loads to the AWS platform.
+AWS was chosen as the cloud service provider as it is a mature platform, has a global presence, scales well and offers a range of cloud-based tools and services for every IT need.
+Owing to a poor cloud strategy, the company couldn’t see any difference after the migration.
+As the clientele grew and the business expanded, managing operational cloud costs and predicting future expenses became a challenge.
+The Solution
+The company chose CloudTern to design and implement the right cloud optimization strategy.
+CloudTern packaged all the applications into containers to run on Amazon Elastic Compute Cloud (EC2) instances using Amazon Elastic Kubernetes Service (EKS).
+Kubernetes is an open-source container orchestration tool that is widely used across the globe. Amazon EKS is Kubernetes-conformant and a managed Kubernetes service that lets you manage Kubernetes on AWS and on-premise locations.
+While Kubernetes control plane nodes took care of tasks such as container scheduling, cluster data storage and application availability management etc., EKS helped in managing and scaling Kubernetes control planes.
+Amazon S3 was used for storage while Amazon DynamoDB managed the NoSQL database service.
+Key Benefits
+Lowered cloud usage costs
+Fully-managed Kubernetes Service
+Extensive and flexible open-source APIs
+Secure environment with IAM controlling access to pods, containers and tasks
+Highly portable workloads
+With CloudTern Cloud Optimization strategy design, the company was able to build and manage a secure Kubernetes environment that is highly scalable and resilient while saving on cloud costs.
+Though AWS EKS charges $0.10 per hour per cluster which comes to $72 per month per cluster, the smart auto-scaling and provisioning feature helped the company to see significant cost savings.
+Non-time-critical processes utilized the spot instances while critical and regular tasks ran on on-demand and reserved instances. As such, the company was able to see a significant difference in cost savings for fixed and operational costs.
+With AWS EKS, the company gained a double advantage of the full power of Kubernetes and fully-managed Kubernetes cloud service from AWS. The company was able to run clusters on any Kubernetes environment and seamlessly move them between different cloud and on-premise environments.
+The ability to assign network interfaces to the pod enabled the company to securely assign security groups to specific container groups without exposing all EC2 ports.
+Prev
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

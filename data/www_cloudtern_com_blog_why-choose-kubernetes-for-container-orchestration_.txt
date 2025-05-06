@@ -1,0 +1,94 @@
+Why CloudTern Chose Kubernetes for Container Orchestration? - CloudTern Solutions
+Why CloudTern Chose Kubernetes for Container Orchestration?
+November 6, 2020
+by
+Ramu Kambalapuram
+Blog
+In the traditional software development environment, creating an application was a simple process of writing the code. However, the rapid innovation that has brought-in a myriad of technologies, tools, frameworks, architecture and interfaces adds enormous complexity to application development environments. The advent of smartphones has opened up another world of mobile computing environment which adds up to this challenge. Developers now have to consider all these aspects while creating an application. Containerization solves all these challenges enabling developers to focus on just the application and not worry about runtime environment differences.
+An Overview of Containerization
+A container is a standalone and portable software unit that is packaged with code and its entire runtime environment such as binaries, libraries, dependencies, configuration files etc. By abstracting away the underlying infrastructure, OS and platform differences, containers facilitate seamless movement of applications between different computing environments. Right from a large enterprise application to a small microservice, containerization can be applied to any type of application or service. The absence of the OS image makes containers lightweight and highly portable.
+The Evolution of Containerization
+Containerization is not a new concept and has been around for decades. Unix OS Chroot was the first system that implemented containerization, providing disk space for each process. Derrick T. Woolworth extended this feature in 2000 wherein he added a sandboxing feature for file system isolation in FreeBSD OS. While Linux implemented this feature in its VServer in 2001, Solaris released containers for x86 in 2004. Similarly, Google introduced Process Containers in 2006 to isolate resources. Linux introduced container manager, LXC in 2008. CloudFoundry introduced LXC in Warden which was able to run on any operating system. Google introduced Linux app containers in 2013 which was called lmctfy. However, containerization gained widespread adoption with the advent of Docker in 2013.
+Virtual Machines Vs Containers
+Containers are often confused with virtual machines. Containers and virtual machines share a lot of similarities in terms of resource isolation and allocation but differ in the functionality. A virtual machine is created by abstracting physical resources from a machine and deployed to run in an isolated computing environment to deliver the functionality of a computing device. Each virtual machine contains the copy of the operating system and all the dependencies of the application running on it. A hypervisor is used to run multiple VMs on a single machine. As it contains the full copy of OS, it is larger in size and takes more time to boot.
+While a VM virtualizes hardware resources, a container virtualizes the operating system. Multiple containers share the same OS kernel and run in isolation on the same machine. As there is no OS, containers are lightweight, portable, run more applications and take less time to boot. By combining both these technologies, organizations can gain more flexibility in managing and deploying a range of applications.
+Benefits of Containerization
+Containers bring amazing benefits to organisations. Here are a few of them:
+Highly Portable
+While the absence of a full OS copy in a container makes it light-weight, the abstraction of underlying infrastructure makes it highly portable. It means, containers can be easily deployed in an on-premise data center, public cloud or on any individual laptop. Containers run on Windows, MAC, Linux, virtual machines or even on bare metals, offering higher flexibility for development and deployment of applications.
+Improved Efficacies and Increased Productivity
+Containers clearly define the role of developers and operations teams. With language runtimes, software libraries and dependencies, containers assure predictable and consistent environments, regardless of where the applications run. As such, operations and development teams can stop worrying about software differences across environments and focus more on improving performance of apps, resulting in more productivity and efficacies.
+Faster and Better Application deployment
+Containerization significantly improves the build, test and deployment of applications. Compared to virtual machines that take minutes to load, containers can be spinned up within seconds. They share a single OS kernel, boot much faster and consume less memory. By packaging an app along with its dependencies into isolated software units, containers facilitate easy replication of apps on multiple machines across the clusters, rapid deployment and scaling.
+Docker – A Synonym for a Container
+Docker is an open-source tool that helps both development and operations teams in building, managing and deploying containers with ease. Docker was originally created for Linux but now supports MAC and Windows environments. Docker Engine is a runtime environment that lets you build and run containers and store these images in Docker Hub container registry.
+As a leading cloud solutions company, CloudTern manages containerization needs for multiple companies. Docker offers the flexibility to integrate it with major infrastructure automation and configuration management solutions such as Puppet, Chef, Ansible, SaltStack etc. or independently manage software environments. In addition, Docker allows us to integrate it with the CI/CD pipeline and run multiple development environments that are similar to real-time production environments on a single machine or try different configurations, servers, and devices etc. for running test suites. As such, our clients were able to deploy software more frequently and recover faster while significantly reducing the change failure rate.
+While there are other container management tools such as RKT, Canonical, Parallels etc., Docker is the most popular tool that has now become a synonym for a container. The fact that Docker can be used on any operating system or cloud makes it the first choice for many. At CloudTern, we proactively monitor technology changes and offer the best IT solutions for our clients. So, Docker is our first choice for all containerization needs.
+Why Container Orchestration?
+Looking at the significant benefits offered by containers, several organizations are now implementing container technology into their CI/CD environments. As containers are quick to spin up, lightweight and portable, thousands of containers are created and deployed across the infrastructure. A typical IT infrastructure runs hundreds of containers that come with a shorter lifespan which pose great complexity in infrastructure monitoring.  You need to closely monitor and manage them to know what’s running on each server. This is where cloud orchestration tools come to the rescue.
+Kubernetes, Mesosphere and Docker are the most popular cloud orchestration tools.
+An Overview of Kubernetes
+Kubernetes is the most widely used container orchestration tool in recent times. Kubernetes was developed by Google and released in 2014. It is now managed by Cloud Native Computing Foundation (CNCF). Kubernetes allows organizations to easily automate deployment, scaling and management of container applications across a cluster of nodes. It is a standalone software that can independently manage containers without Docker or work with Docker in tandem.
+A Quick Overview of Kubernetes Architecture
+The kubernetes architecture consists of two core components:
+Nodes
+(bare metals or virtual machines): Nodes are again divided into two components:
+Master
+: A master node is where the Kubernetes is installed. The Master node controls and manages scheduling of pods across worker nodes where the application runs while maintaining the state of the cluster at its predefined state. Multiple master nodes are implemented to maintain high availability. Here are the key components of a master node.
+Kube-contoller-manager
+: It is responsible to maintain the desired state of a cluster by listening to the kube-apiserver about the information of the current state.
+Kube-scheduler
+: It is the service that schedules events and jobs across the cluster based on the availability of resources of predefined policies via the kube-apiserver.
+Kube-apiserver
+: It is the API server that enables UI dashboards and CLI tools to interact with Kubernetes clusters.
+Etcd
+: It is the master node storage stack that contains definitions, policies, state of the system.
+Worker Node
+: This is where the actual application runs. It contains the following components:
+Docker
+: It contains the Docker engine to manage containers.
+Kubelet
+: It receives instructions from the master node and executes them while sending information about the state of the node to the master.
+Kube-proxy
+: This service facilitates communication between microservices and pods within the cluster as well as connect the application to the outside world.
+Pods
+: A pod is a Kubernetes basic unit of deployment. All containers required to co-exist will run in a single pod.
+Why CloudTern Chose Kubernetes?
+As a leading cloud managed Services Company, CloudTern handles cloud networks of multiple organisations. A typical IT network comprises multiple nodes that can be anything from virtual machines to bare metals. Multiple nodes are implemented by IT administrators for two important reasons. Firstly, high availability is a key requirement for cloud-based services wherein the application should always be available to users even when a node is down. So, a robust infrastructure has to be set up. Secondly, scalability is a key concern. As the application traffic increases, more containers should be dynamically added or removed on-demand. Multiple containers of an application should talk to each other as well.
+Docker Swarm is a container orchestration tool offered by Docker. It uses Docker API and works in tight integration with Docker. However, CloudTern chose Kubernetes because Kubernetes efficiently co-ordinates a large cluster of nodes and scales better in production compared to Docker that runs only on a single node. It helps you manage and orchestrate container resources from a central dashboard.
+Kubernetes securely manages networking, load-balancing and scales well. In addition, it allows you to group containers based on a criteria such as staging environments or implement access permissions. So, it eliminates the need to mock up the entire microservices architecture of an application for the development team. You can deploy software across pods in a scale-out manner and scale in deployments on-demand. It gives clear visibility into the deployment process wherein you can check the completed, in-process and failed deployments from a single pane. You can save time by pausing and resuming a deployment at your convenience. The version control feature allows you to update pods with latest images of the application and roll back to a previous one, if needed.
+With support for 5000 nodes and 300,000 containers, Kubernetes works well for organizations of all sizes. Combined with Docker, Kubernetes offers a highly scalable cloud orchestration system delivering fast and reliable applications. Kubernetes enjoys a large and vibrant community which means you can always be up to date with what’s happening with the tool or get help to resolve any issues.
+The Bottom Line
+Kubernetes is not just a personal choice. Today, Kubernetes is the market leader in container orchestration. According to
+StackRox
+, Kubernetes market adoption reached 86% by Spring 2019.  These market statistics once again affirm the fact that CloudTern always offers the right tools for the right IT tasks.
+References
+https://www.netapp.com/us/info/what-are-containers.aspx
+https://www.docker.com/resources/what-container
+aws
+AWS Networking
+Share
+Related Posts
+September 4, 2024
+Blog
+AI Innovation with AWS Infrastructure and Managed Services
+August 30, 2024
+Blog
+Revolutionizing Logistics with IoT: Tracking, Fleet Management, and Automation
+August 21, 2024
+Blog
+Supercharging AWS Cloud Operations: A Journey from Docker to Kubernetes
+Prev
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

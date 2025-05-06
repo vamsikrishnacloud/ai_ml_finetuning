@@ -1,0 +1,45 @@
+Unified CDR Management solution - CloudTern Solutions
+Unified CDR Management solution
+Project Name
+Unified CDR Management solution
+Client
+SONOC
+Our Role
+CDR Management Solution
+Leading MVNE Platform Provider chose CloudTern to develop a unified CDR management solution that centralized CDR database and facilitated real-time analytics and thereby enabled the company to improve telecom operations.
+Company Overview
+Our Customer is a leading provider of MVNE Platform. Based in the US, the company offers Platform to launch MVNO business.
+The Challenge
+MVNE Platform Provider offers telecommunication services in the US, Singapore, Spain, Belgium.
+Platform has different network elements and that generates CDRs in different formats and in huge volumes. Being a Platform provider we have to unify data and analyse and understand about the CDR.
+Legacy CDR processing engine is not able handle huge volumes of data and storage in subsets taking a lot of storage.
+Without real-time analytics, it was difficult for the company to identify customer behaviour.
+The company was looking for a technology partner to create a central MongoDB cluster with Kafka.
+The Solution
+CloudTern created a MondoDB cluster in AWS and Kafka distributed messaging system.
+While MongoDB provided the power to manage large unstructured data, Kafka offered the flexibility of distributed messaging system with real-time batch processing.
+This unified CDR solution facilitated a unified platform to handle CDR data feeds in real-time.
+Key Benefits
+CDR’s are stored in
+a MongoDB cluster​
+0% data loss​
+Real time analytics​
+As Kafka runs as a cluster on multiple servers located in multiple locations, Customer was able to pull out data from multiple servers across the infrastructure.
+This aggregate data is pulled into a central dashboard, enabling the administrators to monitor and manage the entire CDR data from a central location. Kafka delivers high throughput and low latency that adds up to the benefits.
+With CloudTern unified CDR solution, users are able to filter the calls, play selected files and generate call lists based on ‘day-wise’, ‘hour-wise’ or other custom reports.
+The highly scalable architecture of Apache Kafka enabled Customer to instantly scale up resources according to changing network traffic.
+With real-time analytics, Customer was able to identify and instantly resolve quality issues and reduce downtimes while significantly improving the performance of the network.
+Prev
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

@@ -1,0 +1,43 @@
+Churn Prediction - CloudTern Solutions
+Churn Prediction
+Project Name
+Churn Prediction
+Client
+UK Based MVNO
+Our Role
+Churn Prediction Solution
+Company Overview
+Leading UK based MVNO chose CloudTern for its customer retention strategies. CloudTern designed a Churn Prediction solution that identified possible churners to perfection while increasing customer satisfaction.
+The Challenge
+MVNO partnered with top Telcos in the UK and has invested in a high quality infrastructure to provide reliable telecom services to its customers.
+While the company had no issues with the technical services, the main challenge was with churners. As MVNO offers subscription-based services, the increase in number of customers who cancel their subscription services was negatively affecting their revenues.
+As the company serves thousands of customers, it is not easy to interact with each and every customer.
+The company needed a reliable solution to identify possible churners so that they can go an extra mile to interact and retain those specific customers.
+So, MVNO was looking for a technology partner to help them in churn prediction.
+The Solution
+MVNO chose CloudTern to develop a churn prediction solution to identify potential churners.
+CloudTern designed a churn prediction service using the TensorFlow.
+CloudTern implemented the neural network model to create the churn prediction service.
+This model implements the learning algorithm for matching neurons using the created predictive ML model.
+CloudTern Churn Prediction model is cloud-based software which means ABC Telecom employees can access this software from any location and device.
+Key Benefits
+Predicting the potential churners
+Identifying the key factors of churn & Real time identification of the customer
+Helping them to understand their customers behaviour & Retain them
+Reduction of 30%
+churn rate
+With CloudTern Churn Prediction model, ABC Telecom was able to proactively identify potential churners and successfully retain them. The company was able to identify the key factors of Churn for a real-time identification of the customer. With this model, ABC Telecom was able to understand the customer behaviour to successfully retain them
+With CloudTern Churn Prediction Model, the Churn rate was reduced by 30%. In addition to retaining customers, ABC Telecom was able to increase customer satisfaction levels to gain new customers and thereby increase its revenues.
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

@@ -1,0 +1,438 @@
+Hybrid Cloud Archives - Page 2 of 2 - CloudTern Solutions
+Hybrid Cloud Tag
+March 17, 2022
+by
+admin
+Blog
+Top 3 DevOps Categories Every Organization Should Focus On
+As businesses embrace microservices and cloud-native architectures,
+DevOps
+stands at the center, helping businesses efficiently manage IT workloads. DevOps is an innovative methodology that integrates development, operations, security and business teams to seamlessly coordinate and deliver quality products faster and better. From planning and development to delivery and operations, DevOps works right through the entire application lifecycle.
+DevOps brings developers and operations together so that the code is automatically build, tested and deployed in a continuous model. It uses a Continuous Integration / Continuous Deployment (CI/CD) pipeline with automation incorporated across the product lifecycle to accelerate the development process and improve efficiencies while reducing costs.
+A CI/CD pipeline comprises a series of steps involved in the delivery process of quality software. It includes the following steps:
+Build Phase:
+The application code is build and compiled here
+Test Phase:
+The compiled code is tested here
+Release Phase:
+The code is pushed to the repository
+Deploy Phase:
+Code is deployed to production
+While DevOps offers amazing benefits to IT teams, many organizations fail to leverage it owing to a lack of understanding of this methodology. Understanding different categories of DevOps and implementing the right tool stack is important. Here are 3 important DevOps categories every organization should focus on.
+1) Software DevOps
+Software DevOps is where the core software is developed. It involves planning the design, assigning tasks to the team and creating artefacts using tools such as coding software, integrated development environment (IDE), version control system, testing framework and issue management.
+Integrated Development Environment (IDE): Developers use a text editor to write, debug and edit code. However, an IDE comes with much more features than a text editor offers. Along with an editor, the IDE offers debugging and compilation enabling you to build, test and deploy code from a single dashboard. Choosing the right IDE improves productivity, reduces errors and eases the development process. While choosing an IDE, ensure that it can be integrated with services across the DevOps lifecycle. Visual Studio, IntelliJ and Eclipse are some of the popular IDEs available in the market.
+Version Control System: When multiple developers work on a software project, keeping track of code changes becomes a critical requirement. A version control system helps you to keep track of each code change and revert to a specific version when a release crashes. Git is the most popular VCS system. CVS, Mercurial and SVN are other options available in this segment.
+Testing Framework: A testing framework offers a set of guidelines to design and run test cases using the best testing tools and practices.
+Issue Management: It is a process of identifying system-level conflicts and defects in the workflow based on events or metrics. It involves detection, response, resolution and analysis.
+To achieve continuous delivery, it is important to choose the right CI/CD tools and implement automation wherever possible. Here are a few best tools for software DevOps:
+Jenkins:
+Jenkins is an open-source CI server tool that comes free of cost. It supports Linux, Windows and macOS platforms as well as major programming languages. The main advantage of Jenkins is its plug-in repository. You can find a plugin for most of the development tasks. Moreover, it can be easily integrated with other CI/CD platforms. Debugging is easy. However, it is important to check if the plug-ins are updated. Another downside is the lack of a user-friendly UI. It has a learning curve concerning the installation and configuration of the tool.
+Github Actions
+Github Actions is a CI/CD platform that enables developers to directly manage workflows in their Github repository. As such, you can perform repository-related tasks in a single place. It offers multiple CI templates. Github Actions comes with 2000 build minutes free per month.
+GitLab
+GitLab is a CI software developed by GitLab Inc. for managing DevOps environments. It is a web-based repository that enables administrators to perform DevOps tasks such as planning, source code management, operations, monitoring and security while facilitating seamless coordination between various teams through the product lifecycle. This platform was written in Ruby and launched in 2014 as a source code management tool. Within a quick time, it evolved as a platform that covers the entire DevOps product lifecycle. It comes with an open-core license which means the core functionality is open-source and free but additional functionalities come with a proprietary license.
+AWS Code Pipeline
+AWS CodePipeline is a powerful DevOps product from AWS that enables developers to automate and manage the entire product lifecycle. The tool automatically creates a build, runs the required tests to launch an app whenever a code change is detected. It offers an intuitive GUI dashboard to efficiently monitor and manage workflow configurations within the pipeline. As AWS CodePipeline is tightly integrated with other AWS services such as S3, Lambda or 3rd party services such as Jenkins, it becomes easy to create quality software faster and better. You can simply pull code from S3 and deploy it to Elastic Beanstalk or Codedeploy.
+2) Infrastructure DevOps
+Infrastructure management is another crucial component of a DevOps environment. With the advent of
+Infrastructure as Code
+(IaC), managing the infrastructure became simple, cost-effective and risk-free. Infrastructure as Code is an IT method of provisioning and managing infrastructure resources via config files, treating infrastructure as software. IaC enables administrators and developers to automate resource provisioning instead of manually configuring hardware. Once the hardware is transformed into software, it can be versioned, rollback and reused.
+The advent of Ruby on Rails and AWS Elastic Compute Cloud in 2006 enabled businesses to scale cloud resources on-demand. However, the massive growth in web components and frameworks posed severe scalability challenges as administrators struggled to version and manage dynamically changing infrastructure configurations. By treating infrastructure as code, organizations were able to create, deploy and manage infrastructure using the same software tools and best practices. It allowed rapid deployment of applications.
+IaC can be implemented using two models namely Declarative Configuration and Imperative configuration. In a declarative approach, the configuration is defined in a declarative model that shows how the infrastructure should be while the Imperative model defines steps to reach the desired state. Terraform and AWS CloudFormation are the two most popular IaC tools that enable organizations to automatically provision infrastructure using code.
+Infrastructure as Code took infrastructure management to the next level. Firstly, it rightly fits into the DevOps CI/CD pipeline. The ability to use the same version control system, testing frameworks and other services of the CI/CD pipeline facilitates seamless coordination between various teams and faster time to market while significantly reducing costs. It also helps organizations leverage the containerization technology wherein the underlying infrastructure is abstracted at the OS level, and the hardware and OS are automatically provisioned. As such, containers running on top of it can be seamlessly deployed and moved across a wide variety of environments.
+Secondly, IaC offers speed and efficiency with infrastructure automation. It is not confined to compute resources but extends to network, storage, databases and IAM policies as well. The best thing about IaC is that you can automatically terminate resources when they are not in use. Thirdly, IaC reduces operational costs as the number of network and hardware engineers required at every step of operations is reduced. Fourthly, it brings consistency across all deployments as config files use a VCS as a single source of truth. Scalability and availability are improved. Monitoring the performance and identifying issues at a granular level helps reduce downtimes while increasing operational efficiencies. Overall, it improves the efficiency of the entire software development lifecycle.
+Terraform
+Terraform is an open-source IaC tool developed by Hashicorp in 2014. Written in Go language, Terraform uses Hashicorp Configuration Language (HCL) to define the desired state of the target infrastructure on a variety of platforms including Windows, Solaris, Linux, FreeBSD, macOS and OpenBSD. Terraform is a declarative-based tool that stores the state of the infrastructure using a custom JSON format along with details of which resources should be configured and how. The tool uses ‘Modules’ to abstract infrastructure into sharable and reusable code. HCL is human-readable and helps you quickly build infrastructure code. Terraform is cloud-agnostic and integrates well with AWS. So, it can be used to manage a variety of cloud environments.
+AWS CloudFormation
+AWS CloudFormation is a managed IaC service from AWS that helps you to create and manage AWS resources using simple text files. Along with JSON template format, YAML is supported. AWS constantly updates the tool to always keep it current while adding several new features regulalry. Nested stacks is a useful feature that encapsulates logical functional areas which makes it easy to manage complex stacks. Similarly, changesets is another useful feature that allows you to inspect changes before applying them. However, CloudFormation is native to AWS. If your infrastructure is AWS-heavy, CloudFormation will serve a great purpose.
+3) Database DevOps
+DevOps is not just confined to development and operations. Database DevOps extends DevOps capabilities to databases as well, integrating development teams with database administrators (DBAs) such that database code is also included with the software code. As such, database changes can be efficiently monitored and added to the DevOps workflows.
+In a traditional development environment, changes made to an application often require changes to be made to the corresponding database. Developers wait for DBAs to make changes to databases that are stored in SQL scripts. These changes have to be reviewed before deploying data to production. As the review is done at the later phase of the workflow, the delay impacts the overall agility and productivity of the project. Errors identified just before a release can be risky and costly as well.
+Database DevOps introduces a version control system for database changes. The source control allows you to run builds anytime and roll back if needed at your pace. It also offers an audit trail.
+In database DevOps, database workflows are also integrated into the CI/CD pipeline with automation incorporated wherever possible. When a database code change is detected, the system automatically triggers a build. As such, database teams can closely work with other teams on code changes using a well-defined process to improve productivity while reducing task switching.
+However, continuous deployment is not easy with regard to databases. When a code change triggers a change to the database schema, it should be migrated to a new structure. You need the right tools to do so. Snowchange is a powerful DevOps database tool that helps you in this regard.
+SnowChange
+SnowChange is a powerful DevOps database tool developed by James Weakly in 2018 to manage Snowflake objects such as tables, stored procedures and views. Written in Python, Snowchange fits easily into the DevOps CI/CD pipeline as all popular CI/CD tools offer a hosted agent for Python. It is a lightweight tool that follows an imperative approach to DCM (Database migration, schema change and schema migration). It uses a snowchange change script that contains SQL statements defining the state of the database. By looping target databases, the tool applies new changes to the required databases.
+Sqitch, Flyway and Liquibase are a few other options in the DevOps database stack.
+DevOps is a blanket term that deals with managing an entire product lifecycle. However, it is important to optimize every phase of the DevOps workflow. Choosing the right tool stack for the right process is the key to fully leveraging DevOps.
+Confused about various tools, processes and configurations. Not to worry anymore. CloudTern is here to help. As an experienced DevOps company, CloudTern helps you in designing and implementing the right tool stack for your DevOps projects.
+Call us right now to master DevOps!
+Read More
+Share
+November 22, 2021
+by
+admin
+Blog
+Native App Vs Hybrid App – What to Choose?
+Mobile apps are increasingly being developed in recent times. The reason is simple. There are 4.4 billion mobile users globally as reported by DealSunny. Each hour people make 68 million Google searches generating $3 million revenues, 8 million purchases on Paypal, open 2 billion emails, send 768 million text messages and 1 billion WhatsApp messages. As such, businesses are quickly leveraging this mobile revolution to stay ahead of the competition. Companies build mobile apps to provide a superior customer experience, tap into new markets, engage with customers, boost sales and be competitive.
+One of the important challenges while building a mobile is choosing between native and hybrid app development models. While both app types come with pros and cons, your product goals and business objectives should decide the type of app best suited for your organization. Here is a comparison of two mobile app types.
+Native App Vs Hybrid App: Overview
+A native app is built for a specific platform and OS and uses a special programming language compatible with the platform. While building a native app, developers use Integrated Development Environment (IDE), SDK, interface elements and development tools related to that platform. For instance, a native app for iOS is written using Objective-C or Swift while a native app for Android devices is written in JavaScript.
+A hybrid app is platform-agnostic and OS-agnostic which means you can run it on iOS, Android, Windows and other platforms. Hybrid apps are built using HTML5, CSS, and JavaScript. A hybrid app is actually a web app that is wrapped with a native interface.
+Native App Vs Hybrid: Development
+Developing native apps takes a long time and is expensive when compared to a hybrid app. To build an iOS app, developers use Swift or Objective-C. Similarly, JavaScript or Kotlin is used to build native Android apps. It gives them full access to the full-featured set and OS functionality. However, developers should have expert knowledge of the programming language to manage OS components. Moreover, you have to write different code bases for iOS and Android platforms.
+When it comes to hybrid apps, development is easy as you can use a single code base to run on multiple platforms. The backend is developed using JavaScript, HTML and CSS and the front end comes with a native shell wrapper that is downloaded onto the user machine via a webview. Hybrid apps don’t need a web browser. They can access device hardware and APIs. However, they have to depend on a 3rd party for the native wrapper. Being dependant on frameworks and libraries such as Ionic or Cordova, hybrid apps should always be maintained in perfect sync with platform updates and releases.
+Native App Vs Hybrid: Performance
+When it comes to performance, Native apps have an edge as they are built specifically for the platform. They are easy to use and deliver faster performance. They seamlessly integrate with the native environment to access tools such as camera, mic, calendar, clock etc. to deliver superior performance. The native platform gives assurance of the quality, security and compatibility with the platform of the native apps. On the other hand, hybrid apps are not built for a specific OS which means they are slow. The speed and performance of a hybrid app depend on the speed of the internet connection of the user’s web browser. It means the performance cannot beat native apps.
+Native App Vs Hybrid: User Experience
+When it comes to user experience, Native apps deliver a great user experience as they perfectly blend with the branding and interface of the platform. Developers get the luxury of designing an app that fully matches the interface of the platform following specific UI guidelines and standards. They can run offline and online. On the other hand, hybrid apps are not optimized for UI/UX designs as they don’t target a specific OS, platform or group of users.
+Native App Vs Hybrid APP: Cost
+Building a native app is more expensing compared to a hybrid app as you have to create separate codebases for each platform. For instance, if you create an app for iOS using Swift, it will not work on an Android mobile. It means you have to rewrite the same app using JavaScript or Kotlin that adds up to the initial costs. Moreover, updates and maintenance tasks require additional budgets. Releasing the same features on iOS and Android platforms at the same time is a challenge as releasing cycles and updates are different for both platforms.
+Another challenge is that you require diverse skillsets to build and manage multiple versions of the same app. For instance, Swift developers might not have the same level of expertise with Kotlin. You have to hire more developers for the job. All these aspects add up to development time, costs and complexities. Hybrid apps are quick to build and deploy and are cost-effective. Maintenance is easy as well. However, compatibility issues between the device and the OS might creep up in the long run.
+Native App Vs Hybrid App: Which one to choose?
+Hybrid apps are easy to build and manage while being cost-effective. If you have less time to market, you can quickly build a hybrid app. With customer experience becoming important for businesses in recent times, delivering a superior user experience is always recommended. As such, user experience should be the primary aspect while choosing an app development model. Native apps help you to deliver great UI/UX designs.
+Read More
+Share
+September 9, 2021
+by
+admin
+Blog
+DevOps for Business Intelligence
+DevOps started off as a methodology that integrates Developers and Operations teams to work in tandem in software development projects. It facilitates seamless coordination and communication between teams, reduces time from idea to market and significantly improves operational efficiencies while optimizing costs. Today, DevOps has rapidly evolved to include several other entities of IT systems. A new addition is Business intelligence.
+DevOps jelled well with Big Data as both methodologies are contemporary and complement each other in managing of massive volumes of live data moving between development and production that is maintained relevant via seamless coordination between teams. When it comes to business intelligence, data warehousing and analytics are two important components that need to be managed. As BI deals with batches of data, it doesn’t easily integrate with the DevOps environment by default.
+Managing Data Warehousing with DevOps
+A data warehouse is a central data repository that collects data from various disparate data sources in and outside the organization and hosts them in a central location allowing authorized people and reporting and analytics tools to access it from any location. Managing a robust and sophisticated data warehouse is a challenge as multiple stakeholders are involved in making a change which makes deployments rather slow and time-consuming. Implementing DevOps here can be a revolutionary thing as you can combine data administration teams and data engineering teams to collaborate on data projects. While a data engineer informs potential features that are being introduced to the system, the data administrator can envisage production challenges and make changes accordingly. With cross-functional teams and automated testing in place, production issues can be eliminated. Together, they can build a powerful automation pipeline that comprises data source analysis, testing, documentation, deployment etc.
+However, introducing DevOps for data warehouse management is not a cakewalk. For instance, you cannot simply backup data and revert to the backup as and when required. When you revert to a last week’s backup, what about the changes made to the data by several applications?
+DevOps for Analytics
+The analytics industry is going through a transformation as well. Contrary to the traditional analytics environment that uses a single business intelligence solution for all IT needs, modern businesses implement multiple BI tools for different analytical purposes. The complexity is that all these BI tools share data between them and there is no central management of BI tools. Another issue is that data scientists design models and algorithms for specific data sets to gain deeper insights and offer predictions. However, when these data sets are deployed to the production environment, they serve a temporary purpose. As data sets outgrow, they become irrelevant which means continuous monitoring and improvement is required. The rate at which the data drifting happens is enormous and traditional analytics solutions are inefficient to manage this speed and diversity. This is where DevOps comes to the rescue.
+DevOps helps businesses integrate data flow designs and operations to automate and monitor data enabling them to deliver better applications faster. Automation enables organizations to build high performing and reliable build-deploy iterative data pipelines for improving data quality, accelerate delivery and reduce labor and operational costs. Monitoring data for health, speed and consumption-ready status enable organizations to reduce blindness and eliminate performance issues. It means a reliable feedback loop is created that covers data health, privacy and data delivery for ensuring smooth flow of operations for planned as well as unexpected changes.
+The Bottom Line
+Bringing DevOps into the BI realm is not an easy task as BI environments are not suitably designed for DevOps. However, businesses are now exploring this option. Bringing DevOps into the BI segment gives situational awareness to businesses as they can make informed decisions when they gain insights into relevant data added from multiple sources. Moreover, it brings great collaboration between teams, allows better integration between different application layers while helping businesses to explore and quickly tap into new markets. Most importantly, it makes your business future-proof.
+Read More
+Share
+August 2, 2021
+by
+admin
+Blog
+Cloud Development – All You Need to Know
+In today’s cloud era, every IT resource is hosted in the cloud and delivered over the Internet via a pay-per-use subscription model. While the amazing benefits offered by the cloud have inspired the software industry to embrace cloud development, the recent pandemic has forced everyone to move towards the digital world. As work-from-home environments are here to stay, cloud development has now become more important than ever.
+What is Cloud Development?
+Cloud development is about developing software applications using computing infrastructure that is hosted in the cloud. Instead of building and managing your servers and physical hardware, you can access technology services hosted in the cloud via a pay-per-use model.
+Right from servers, data storage and network resources to OS, Middleware and Run-time environment, everything can be accessed over the Internet.
+In addition, you gain access to ready-made cloud solutions for monitoring, analytics etc. Amazon is a leading provider of public cloud solutions while VMware tops the private cloud services segment.
+Cloud-based apps are highly scalable and flexible. They can be accessed from any device, any location using APIs. The app data is stored in the cloud and resides on the user’s device as a cache enabling the user to work offline. When the app is connected online, the cache data gets updated. Google Docs, Evernote, Canva, Dropbox are a few popular examples of cloud-based apps.
+Why is Cloud Development Popular?
+Cloud development offers amazing benefits to organizations. Firstly, it eliminates the need to invest heavily in on-premise infrastructure and licensing costs. With a pay-per-use model, you can only pay for the services used. It gives you access to cutting-edge technologies at cost-effective prices. Secondly, cloud development facilitates seamless collaboration between teams located in different geo-locations. Thirdly, cloud development offers high scalability, flexibility, unlimited storage, faster time to market and automatic recovery options. In addition, it automatically updates the software and performs maintenance which means you can focus on building quality software products.
+Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform are the leading providers of cloud development solutions.
+Web Apps are not Cloud Apps
+Often, cloud development is confused with web development. It is important to understand that all cloud apps are web apps but all web apps are not cloud apps. To be precise, cloud-based apps are an advanced version of web-based apps. Web-based apps depend on browsers and scalability and customization is limited. The data is stored on a single data server. You can’t work offline with web-based apps. On the other hand, cloud apps are highly scalable and customizable. The data is stored across multiple data-centers using replication techniques and you can work offline as well.
+Cloud Development Challenges
+While cloud development seems a great option, it comes with certain challenges. Cloud development demands seamless collaboration between different teams such as developers, designers, QA managers, data analysts, DevOps engineers etc. The project involves different cloud technologies such as AWS, Azure, GCP etc. So, people working on cloud apps should have good knowledge about various platforms and be able to integrate apps with different services using APIs.
+Secondly, cloud development brings security concerns. As such, security should be implemented right into the CI/CD pipeline so that it can become a part of automation. It is recommended to separate app data from app architecture code. Thirdly, cloud development offers higher scalability. However, scalability that is not optimized will overrun your cloud budgets. As such, it is important to have clear network visibility to gain better control over cloud infrastructure.
+Conclusion
+Mobility solutions, disaster recovery, Flexibility and reduced workloads are some of the key drivers to cloud adoption. However, cloud development requires expert knowledge of cloud technologies. When rightly implemented, cloud development improves your operational efficiencies and optimizes costs while improving user experience.
+Read More
+Share
+July 28, 2021
+by
+admin
+Blog
+Top 5 benefits of cloud-based software development in 2021
+The advent of cloud computing technology has disrupted the technology world. Today, it is a challenge to identify a service that is not delivered over the cloud.
+While every industry benefitted from this technology trend, the software segment was one of the first industries that started leveraging this trend. The buzz around cloud-based software development is increasing year after year.
+2021 is not going to be any different. Together with AI, cloud technology is helping businesses deliver quality products that are transforming the world.
+Here are the top 5 benefits of cloud-based software development in 2021.
+1) Operational Efficiency at its best
+While enterprises have the budgets and expert staff to use a technology stack that comprises cutting-edge technologies, small and medium companies have to adjust with legacy tools. However, cloud solutions bring everyone onto the same ground. With minimal investment, you can lay hands on world-class technology solutions to increase efficiencies and be competitive.
+Another significant benefit of cloud-based software development is fast and automated deployments. Developers can build continuous integration (CI) / Continuous Deployment (CD) pipelines and automate the entire process to easily build and deploy applications. Similarly, cloud-based apps can be effectively monitored. Based on predefined KPIs, you can analyze the performance of each application using cloud-based monitoring tools. The server logs help you identify issues and improve the efficiency of the product.
+2) Mobility at its best
+One of the biggest advantages of cloud-based software development is mobility. Regardless of your location, platform or device, cloud resources can be accessed by every authorized user 24/7. While the software team can remotely work on the product, endusers can access it from anywhere, anytime. Not only does it facilitate seamless collaboration between different teams, but it increases productivity as well. Considering the post-covid lockdown situations, mobility solutions have become a key requirement of every software development project in 2021.
+3) Adaptability at its best
+When it comes to cloud technology, innovation happens at a rapid pace. Today’s innovation can become tomorrow’s legacy. As such, businesses should proactively monitor technology trends and quickly incorporate necessary changes to their existing technology stack. Being future-proof is the key to sustaining your business operations. Cloud-based software development offers the flexibility to quickly realign product architecture and stay ahead of the competition.
+4) Cost-optimization at its best
+Cost savings is a huge benefit offered by cloud-based software development. You don’t need to invest in expensive physical hardware and licensing fee. You don’t need to worry about maintenance and updates as well. Right from provisioning the infrastructure to maintenance and security, the cloud provider handles all infrastructure-related tasks. It means you can quickly start delivering quality products. Cloud solutions are delivered via a pay-per-use subscription model. This feature enables you to dynamically scale up resources. Moreover, a lesser carbon footprint means a better world.
+5) Scalability at its best
+In a software development project, different teams have different resource requirements. For instance, developers require demo production environments to check the performance of a product. When you set up physical infrastructure, scaling up resources becomes expensive and time-consuming. Cloud infrastructure enables you to instantly scale up resources while only paying for the resources used. Similarly, Ops teams can ramp up production during peak hours and scale down during odd hours. The most important thing is that scaling can be automated.
+However, it is important to consider that cloud-based software development is not easy compared to traditional software development. Security and privacy have to be prioritized. The lack of expert staff can be a big challenge for companies in fully leveraging this trend. When rightly done, cloud-based software development in 2021 keeps your business future-proof.
+Read More
+Share
+June 26, 2021
+by
+admin
+Blog
+Why is Cloud Native App Development the future of IT?
+“Change is the law of life and those who look only to the past or present are certain to miss the future” - John F. Kennedy
+The above quote is apt for this cloud computing era. Today, businesses are looking at the past and changing their current IT operations accordingly.
+However, it is important to look at the future to stay in and ahead of the competition.
+The constant change that happens in the IT landscape has accelerated with the advent of cloud computing.
+As every IT product or resource is delivered over the Internet as a service, it is high time that software developers realign their software development strategies to suit the cloud landscape.
+Cloud native app development is the right approach to make your businesses future-proof. The covid-19 pandemic that pushed businesses into a work-from-home environment compliments the cloud native app development.
+What is Cloud Native App Development?
+Cloud native app development means different things for different people. On a simpler note, it is an approach to building future-proof cloud apps that take advantage of cloud processes and platforms to deliver a consistent user experience across all devices, cloud models and environments.
+Portability, high scalability and adaptability are the three key aspects that are driving cloud-native app development in IT circles in recent times. While business processes are rapidly changing, businesses are required to quickly adapt to these changes and build cloud native apps. Secondly, these apps should deliver a consistent user experience across a range of devices which means portability is the key requirement. They should be scalable enough to meet traffic spikes. Cloud native app development offers these 3 key qualities to IT processes.
+Here are some key components of cloud native apps:
+Microservices Architecture
+Microservices architecture is a type of software architecture wherein complex applications are built as small, loosely coupled, independent and autonomous services that perform a specific task and communicate with each other via APIs. It is a variant of Service-Oriented Architecture (SOA) that enables developers to quickly build and deploy applications.
+Microservices architecture allows businesses to quickly adapt to changing IT requirements as applications built using this architecture are flexible and easily extendable to suit different IT environments. So, you don’t have to code apps from scratch for each IT environment. You can begin small and massively scale up within a quick time. Moreover, these independent services allow you to scale specific services instead of scaling the entire app. The biggest advantage is that you can customize your technology stack based on your cloud environment without getting stuck with a standard approach.
+Containers
+As applications are centralized hosted and delivered over the cloud, portability becomes a key requirement. Containerization enables you to virtualize the operating system and run applications inside containers. A container is a portable computing environment comprising binaries, libraries, dependents and other configuration files required by an application. By using software containers, businesses can easily run applications on various environments such as mobile, desktop, cloud, bare metal, virtual machines etc. Software containers bring a greater level of agility, portability and reusability that are important for cloud native applications.
+Software-Defined Infrastructure
+As cloud services are centrally hosted and accessible from any location, administrators should be able to manage the infrastructure from anywhere as well. Software-defined infrastructure virtualizes hardware infrastructure, enabling you to automatically add, delete, stop and start any network resource using software from any location. By implementing software-defined infrastructure, cloud native apps can be easily managed from any location.
+Application Programming Interface (API)
+Application Programming Interface (API) is an interface that facilitates communication between different applications or services. As cloud native apps are built as multiple services, they use APIs to communicate with each other as well as with other 3rd party applications. For instance, if you want to add multiple languages to your app, you can use the Google Translate API without writing the code from scratch.
+DevOps
+As cloud native apps use the microservices architecture to build services as small and incremental blocks, continuous integration, continuous testing and continuous deployment becomes a key requirement. DevOps helps you to rapidly build and deploy quality cloud native apps.
+Why Cloud Native App Development is the Future?
+As businesses are aggressively embracing cloud technology, cloud native apps are turning out to be a beneficial option. Cloud native apps are faster to market and minimize risks. They can be easily deployed and managed using Docker and Kubernetes. Along with fault tolerance, they are capable of self-healing for most issues.
+As these apps use a modular design, developing them is easy and cost-effective. Different teams can separately work on each service. Most importantly, when these apps are deployed, you can turn off some services that are not running. That way, you can significantly save operational cloud costs. The serverless and open-source model allows you to optimize the pay-per-use subscription model by reducing the computing time to milliseconds. You can scale up specific services too. Cloud native apps allow you to implement an auto-scale feature that automatically scales specific services without manual intervention. This is why most enterprises prefer cloud native apps. The downtime for cloud native apps is minimal as they can quickly pick up on alternation regions when a server goes down.
+As most mobile apps use web-centric programming languages such as Python, PHP, JavaScript, Ruby, cloud native apps that are built on similar environments would perform well and deliver a consistent user experience. Now, developers don’t have to worry about the target environment but focus on business requirements and features. Adding new features or making changes to the app is easy as well. Enterprises love cloud native apps as they are easy to monitor and manage using apps such as AppDynamic, NewRelic etc. Similarly, you can debug them using apps such as Splunk and ElasticSearch.
+Challenges with Cloud Native App Development
+Cloud native app development comes with certain challenges as well. The biggest challenge is the presence of hundreds of services. Developers should be careful while handling and integrating all these services. They should also keep an eye on the size of the service. It is recommended to minimize the number of services wherever possible.
+Secondly, data security and storage requires careful attention. As enterprise run containers on immutable infrastructure, the entire internal data goes off when you shut down the app. So, you should make sure that the data is securely stored. In addition, when an app uses APIs of a specific cloud platform, you should be careful to manage that API while migrating to another environment. Moreover, protecting data from unauthorized access is important.
+As the cloud becomes an integral part of business processes, choosing cloud native app development helps you keep your infrastructure future-proof!
+Read More
+Share
+November 14, 2017
+by
+Ramu Kambalapuram
+Blog
+Hybrid Cloud Architecture with CISCO CSR 1000v
+Cisco CSR 1000v series is a router software appliance from Cisco. It provides enterprise routing, VPN, Firewall, IP SLA, and more.CSR 1000v can be used to connect multiple VPC across all-region in AWS Cloud and on-premise networks. Thus it can be used avoid managed VPN service from AWS.
+In AWS, you can find Cisco CSR 1000v in AWS marketplace which has 30 days free trial to test it out.
+AWS Marketplace for Cisco
+. Be aware this is not cheap, it will cost you EC2 Instance charges. All instance types are not supported for CSR 1000v. It supports only m3 and c3 instance family types.
+Cisco CSR 1000v Can be used in various network models in cloud like Transit VPC, multi-cloud Network.
+Following is the Architecture I have used to connect multiple VPC.
+The two VPC’s are one in N.Virginia region and other is in Ohio Region. And Each VPC has Internet Gateway and were connected over VPN. On Ohio region, we used AWS managed VPN service to connect VPC in N.Virginia region VPC. And On-Premise Edge Router we used Cisco RV110W small business router. In this Post, I would like to mention the steps to follow to establish VPN over two VPC’s spread in two different regions in AWS.
+Steps to create VPC’s in two regions:
+Create VPC in N.Virginia Region with CIDR 10.0.0.0/16 and attach Internet Gateway to it. you can do it from CLI or through the management console.
+aws ec2
+create
+-vpc
+--cidr-block 10.0.0.0/16 --region us-east-1
+Output
+:
+{
+"Vpc"
+: {
+"VpcId"
+:
+"vpc-848344fd"
+,
+"InstanceTenancy"
+:
+"dedicated"
+,
+"Tags"
+: [],
+"CidrBlockAssociations"
+: [
+                    {
+"AssociationId"
+:
+"vpc-cidr-assoc-8c4fb8e7"
+,
+"CidrBlock"
+:
+"10.0.0.0/16"
+,
+"CidrBlockState"
+: {
+"State"
+:
+"associated"
+}
+                    }
+                ],
+"Ipv6CidrBlockAssociationSet"
+: [],
+"State"
+:
+"pending"
+,
+"DhcpOptionsId"
+:
+"dopt-38f7a057"
+,
+"CidrBlock"
+:
+"10.0.0.0/16"
+,
+"IsDefault"
+:
+false
+}
+          }
+
+
+aws ec2
+create
+-internet-gateway
+--region us-east-1
+Output
+:
+
+          {
+"InternetGateway"
+: {
+"Tags"
+: [],
+"InternetGatewayId"
+:
+"igw-c0a643a9"
+,
+"Attachments"
+: []
+              }
+          }
+
+
+
+aws ec2 attach-internet-gateway
+--gateway-id <<IGW-ID>> --vpc-id <<VPC-ID>> --region us-east-1
+Create two subnets in N.Virginia Region VPC, one for CSR 1000v with CIDR 10.0.0.0/24 and another subnet with CIDR 10.0.1.0/24.
+aws ec2
+create
+-subnet
+--cidr-block 10.0.0.0/24 --vpc-id <<VPC-ID>> --region us-east-1
+Output
+:
+{
+"Subnet"
+: {
+"VpcId"
+:
+"vpc-a01106c2"
+,
+"AvailableIpAddressCount"
+:
+251
+,
+"MapPublicIpOnLaunch"
+:
+false
+,
+"DefaultForAz"
+:
+false
+,
+"Ipv6CidrBlockAssociationSet"
+: [],
+"State"
+:
+"pending"
+,
+"AvailabilityZone"
+:
+"us-east-1a"
+,
+"SubnetId"
+:
+"subnet-2c2de375"
+,
+"CidrBlock"
+:
+"10.0.0.0/24"
+,
+"AssignIpv6AddressOnCreation"
+:
+false
+}
+          }
+
+aws ec2
+create
+-subnet
+--cidr-block 10.0.1.0/24 --vpc-id <<VPC-ID>> --region us-east-1
+Output
+:
+{
+"Subnet"
+: {
+"VpcId"
+:
+"vpc-a01106c2"
+,
+"AvailableIpAddressCount"
+:
+251
+,
+"MapPublicIpOnLaunch"
+:
+false
+,
+"DefaultForAz"
+:
+false
+,
+"Ipv6CidrBlockAssociationSet"
+: [],
+"State"
+:
+"pending"
+,
+"AvailabilityZone"
+:
+"us-east-1b"
+,
+"SubnetId"
+:
+"subnet-2c2de375"
+,
+"CidrBlock"
+:
+"10.0.1.0/24"
+,
+"AssignIpv6AddressOnCreation"
+:
+false
+}
+          }
+Create Route Table in N.Virginia VPC which will have the default route to Internet Gateway.And associate CSR subnet to it.
+4. Launch the CSR 1000v from AWS MarketPlace with the one-click launch.
+Link To AWS Marketplace
+, you can ssh into the CSR 1000v instance using
+ec2-user
+.Attach Elastic IP to the CSR instance which will act as Customer Gateway in N.Virginia Region VPC. In later steps, we will configure the router to add Static routes to other subnets in VPC and setting BGP to propagate routes over VPN Connection with other VPC.
+5. In a similar fashion create VPC in AWS Ohio region with CIDR 10.1.0.0/16 And create two subnets with CIDR 10.1.0.0/24 and 10.1.1.0/24
+Steps to Create VPN connection in AWS Ohio VPC
+Create Customer Gateway. Open VPC management console at
+console.aws.amazon.com
+. In navigation pane choose Customer Gateway and then create new Customer Gateway. Enter Name, Routing type as Dynamic and EIP of the CSR 1000v instance in N.Viriginia Region VPC. ASN number is 16-bit and must be in the range of 64512 to 65534.
+Create VPG and attach to the VPC.In the Navigation Pane choose Virtual Private Gateway and create VPG.
+Now Create VPN connection. In Navigation Pane Choose VPN Connection, Create New VPN Connection. Enter the Name, VPG and Customer Gateway which we have created previously, select routing type as Dynamic and create VPN connection.
+It will take few minutes to create VPN connection. When it is ready to download the configuration for Cisco CSR from the drop-down menu.
+Steps to establish VPN Connection on CSR 1000v
+Add static routes of other subnets in VPC(N.Virginia) to CSR 1000v. Every subnet in AWS has a virtual router with IP address of Subnet CIDR +1. As CSR router will be in Subnet 10.0.0.0/24  the virtual router IP address will be 10.0.0.1. The Virtual Router on each subnet has a route to other all subnets in the VPC.
+>Configure terminal
+#ip route 10.0.1.0 255.255.255.0 10.0.0.1
+Configure BGP. Choose the ASN number which you gave while creating Customer Gateway in Ohio VPC. Above we gave 64512
+> Configure terminal
+(config)
+#router bgp 64512
+(Config-router)
+# timers bgp keepalive holdtime
+(Config-router)
+# bgp log-neighbor-changes
+(Config-router)
+# end
+This step might not be necessary. But as good practice, I have applied the above configuration before copying the configuration file that is downloaded before.
+Apply the Configurations that are downloaded previously when VPN Connections Created. After you have applied those setting on CSR you can see on the management console that both the tunnels of VPN as UP.
+Testing to check connectivity between two VPC’s
+Launch an instance in subnet1 in Ohio region VPC’s with Public IPv4. SSH into the instance and ping the CSR 1000v instance private IP.
+Similarly, you can check connectivity with Ohio Region VPC by pinging the instance in subnet1 in Ohio region VPC with its Private IP.
+Troubleshooting
+:
+> Route Propagation must be added to the route table in Ohio Region VPC.
+> You must configure CSR 1000v as NAT, so the subnets in N.Virginia region can access the hosts in Ohio region VPC via CSR 1000v. You need to Update the route table with target fo CSR 1000v instance-id after making it as NAT.
+> Allow ICMP in Security groups on all instances.
+Thanks and Regards
+Naveen
+AWS Solution Architect @CloudTern
+Read More
+Share
+1
+2
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

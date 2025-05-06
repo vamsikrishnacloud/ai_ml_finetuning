@@ -1,0 +1,489 @@
+aws Archives - Page 4 of 4 - CloudTern Solutions
+aws Tag
+September 29, 2017
+by
+admin
+Blog
+Cloud-Init Cheat Sheet
+Cloud-init is a multi-distribution package that handles early initialization of cloud instances. Some of the things cloud-init can do are
+set up the hostname.
+setting up a local user.
+Updating and installing the packages on Linux.
+Disk setup and mounting the additional volumes.
+More information can be found at
+Cloud-Init
+Today most of the distribution support cloud-init and using cloud-init can run all cloud providers(AWS, Azure, GCP). In this article, I want to show some of the code-snippets I have tried in AWS with different distributions mainly Ubuntu and Amazon Linux.
+#To create hostname :
+#cloud-config
+#set the hostmachine name
+fqdn: myhostname.com
+This will set the hostname of the deployed instance to myhostname.com. But the default AMI from Amazon Linux does not support changing the hostname. You need to launch the instance and change the preserve_hostname to false in etc/cloud/cloud.cfg.Then you need to build an image from that instance and launch a new instance from the build image with the above cloud-config script to change the hostname.
+#To add additional users to the instance
+#cloud-config
+users:
+ - name: bob
+   sudo: ALL=(ALL) NOPASSWD: ALL
+   groups: admin, root
+This will add user bob to the instance along with the default user created by distro’s like for Amazon Linux default user ec2-user and for Ubuntu default user is ubuntu.
+#To update packages and install new ones:
+#cloud-config
+package_update:
+true
+packages:
+ - pwgen
+ - nginx
+The above will update the distro package system and install the pwgen and nginx packages.
+#Disk Setup and mount the additional EBS volumes.
+#cloud-config
+# - /dev can ommited for device names starting with xvd, sd, hd, vd
+# if device does not exist at the time, an entry will still be written to /etc/fstab
+mounts:
+- [xvdb, /data,
+"auto"
+,
+"defaults,nofail"
+,
+"0"
+,
+"0"
+]
+#setup the file system on the device
+fs_setup:
+ - label: data
+   filesystem:
+'ext4'
+device:
+'/dev/xvdb'
+partition: auto
+runcmd:
+ - mkdir /data
+This will basically set up the disk to filesystem ext4 and add the mounting device to /etc/fstab in Linux.
+Thanks for viewing.
+Best Regards
+Naveen
+Read More
+Share
+September 20, 2017
+by
+Ramu Kambalapuram
+Blog
+Custom AMI with Custom hostname
+I am using Amazon web services for a while now. And using it allowed me to have hands dirty on various services. In AWS AMI’s(Amazon Machine Image) provides the information like operating system, application server, and applications to launch into the virtual server(or can be called as an instance) in the cloud. There are lots of options for selecting AMIs provided by AWS or by the community. You can choose the preferred AMI that can meet your requirements. You can customize the instance that you have launched from the AMIs provided by AWS and can create your own AMI from that.All the AMIs created by you are private by default.
+Interestingly the instances launched with Public AMIs in AWS comes with default user-name and no password authenticated which sometimes I don’t like. For example, Instances launched with Amazon Linux will have default user-name
+ec2-user
+and for Ubuntu instance default user-name is
+Ubuntu
+.
+Instance launched with Public AMIs also does not allow you change the hostname on flight using user-data. Hostname for any instance launched with Public AMI looks something like
+ip-
+<
+Private-IPv4
+>
+Example: ip-172-1-20-201
+So I have decided to create an AMI which will have default user as Naveen and password as *****. And I would like to have my instance named as myhostname.com i.e hostname. I will use a cloud config script to do that.
+cloud-init is a multi-distribution package that handles early initialization of cloud instances.More information can be found at
+Cloud-Init
+. Some of the tasks performed by cloud-init are
+Set hostname
+Set the default Locale (default user)
+Generate host private ssh keys
+Parse and handle user-data
+Custom AMI
+For creating my Custom AMI with above-mentioned changes I have followed the below steps:
+1. I have launched a t2.micro instance with Amazon Linux AMI ‘ami-4fffc834’. You can launch the instance using AWS management console or be using AWS command line(aws-cli). I have used the aws-cli to launch the instance.
+aws
+ec2
+run
+-
+instances
+--
+image
+-
+id
+ami
+-
+4fffc834
+--
+count
+1
+--
+instance
+-
+type
+t2
+.
+micro
+--
+key
+-
+name
+Naveen
+The above command will launch one t2.micro instance with the key name ‘Naveen’.
+2.  As I have launched the instance using Amazon Linux, the default user-name is ec2-user. Amazon Linux does setting default user using cloud-init. The configuration file for setting default user can be found in /etc/cloud/cloud.cfg.d/00_default.cfg. The config file looks something like below
+system_info:
+# This will affect which distro class gets used
+distro: amazon
+distro_short: amzn
+# Default user name + that default users groups (if added/used)
+default_user:
+name: ec2-user
+lock_passwd: true
+gecos: EC2 Default User
+groups: [ wheel ]
+sudo: [ "ALL=(ALL) NOPASSWD:ALL" ]
+shell: /bin/bash
+# Other config here will be given to the distro class and/or path classes
+paths:
+cloud_dir: /var/lib/cloud/
+templates_dir: /etc/cloud/templates/
+upstart_dir: /etc/init/
+package_mirrors:
+- arches: [ i386, x86_64 ]
+search:
+regional:
+- repo.%(ec2_region)s.%(services_domain)s
+- repo.%(ec2_region)s.amazonaws.com
+ssh_svcname: sshd
+The 00_default.cfg contains other things as well but I have posted only the one which needed to be changed. As we can see the default username for this distro is ec2-user. lock_passwd: true means the user who is trying to log in with the username ec2-user is not allowed to authenticate using a password.
+3. I have changed the user-name to Naveen and lock_passwd: false in the config file. But this config file does not allow entering the normal password as part of the config file. You need to give the password for the user in the hash. So to do that I have used the following commands in Ubuntu machine
+# mkpasswd comes with whois package
+sudo ap-
+get
+install whois
+#To Generate hash using mkpasswd
+mkpasswd –method=SHA-512
+#This will prompt to enter password
+#After entering password, mkpasswd will generate hash and output on console
+Ex:
+$6$G0Vu5qLWx4cZSHBx$0VYLSoIQxpLKVhlU
+.oBJdVSW7Ellswerdf.r/ZqWRuijiyTjPAXJzeGwYe1D/f94tt/tf
+Copy the above-generated hash and add it to ‘passwd’ key in the above config file. After making final changes in the config file
+system_info:
+# This will affect which distro class gets used
+distro:
+amazon
+distro_short:
+amzn
+# Default user name + that default users groups (if added/used)
+default_user:
+name:
+Naveen
+lock_passwd:
+false
+passwd:
+$6$G0Vu5qLWx4cZSHBx$0VYLSoIQxpLKVhlU.oBJdVSW7Elwerfwq.r/ZqWRuijiyTjPAXJzeGwYe1D/f94tt/tf1lXQYJtMtQLpvAqE1
+gecos:
+Modified Default User name
+groups:
+[ wheel ]
+sudo:
+[
+“ALL=(ALL:ALL) ALL”
+]
+shell:
+/bin/bash
+# Other config here will be given to the distro class and/or path classes
+paths:
+cloud_dir:
+/var/lib/cloud/
+templates_dir:
+/etc/cloud/templates/
+upstart_dir:
+/etc/init/
+package_mirrors:
+–
+arches:
+[ i386, x86_64 ]
+search:
+regional:
+– repo.
+%(ec2_region)
+s.
+%(services_domain)
+s           – repo.
+%(ec2_region)
+s.amazonaws.com
+ssh_svcname:
+sshd
+4. Finally, i have made the following changes in rc.local which will change the behavior of ssh service to accept password authentication. And change the preserve_hostname to false in /etc/cloud.cfg
+if
+grep -Fxq
+“PasswordAuthentication no”
+/etc/ssh/sshd_config
+then
+sed -i
+‘s/^PasswordAuthentication.*/PasswordAuthentication yes/’
+/etc/ssh/sshd_config  /etc/init.d/sshd restart
+fi
+With these changes above I have achieved adding default user-name with Naveen and with the default password. With changes above to the instance above I have created an AMI from the instance using aws-cli
+aws
+ec2
+create
+-
+image
+--
+instance
+-
+id
+i
+-
+09ebf4e320b0cadca
+--
+name
+"ONE_AMI"
+
+Output:
+{
+"ImageId"
+:
+"ami-ebec0c91"
+}
+#Cloud-config for setting hostname
+With the Customized i can launch the instance with user-name Naveen but still, the hostname will be in the format like IP-<Private-IPv4>. So  I have used the below cloud-config script to change the hostname.
+#cloud-config
+#set the hostmachine name
+fqdn: myhostname.com
+#Add additional users for the machine
+users:
+ - name: sysadmin
+   groups: [root,wheel]
+   passwd:
+$6$G0Vu5qLWx4cZSHBx$0VYLSoIQxpLKVhlU
+.oBJdVSW7EllsvFybq.r/ZqWRuijiyTjPAXJzeGwYe1D/f94tt/tf1lXQYJtMtQLpvAqE1
+   sudo: ALL=(ALL:ALL) ALL
+#Final Message
+final_message:
+"The system is finally up xcvxxxxxxxxxxxccccccccccccccccccccccc, after
+$UPTIME
+seconds"
+The above script will create the instance with hostname myhostname.com and create a user sysadmin. The above script will be passed as part of user-data when launching an instance
+aws
+ec2
+run
+-
+instance
+--
+image
+-
+id
+ami
+-
+4240a138
+--
+count
+1
+--
+intance
+-
+type
+t2
+.
+micro
+--
+user
+-
+data
+file://cloud
+.
+cfg
+The above launch an instance without Key pair which means I can only log into the instance using the default user Naveen or using a username we have created in cloud configuration script that was passed a user-data.
+Finally with this i have the instance with my custom default user-name and password, and a hostname with myhostname.com.
+Read More
+Share
+September 9, 2017
+by
+Ramu Kambalapuram
+Blog
+Run on AWS – How to better control cloud costs while improving operational efficiencies?
+AWS offers an innovative cloud platform that enables organizations to quickly build great apps at reduced costs. However, organizations that move their infrastructure to the AWS cloud should ensure that the architecture is optimally designed for AWS to make the most out of the agility and elasticity offered by AWS. Failing to do so negates the benefits offered by the cloud. Moreover, failing to choose the right tools for the right procedures across the organization would rise up the operational costs in quick time. Here are certain things to consider while building applications in the AWS cloud.
+Optimized resource usage
+In a traditional environment, businesses operate with a fixed infrastructure. As the infrastructure is installed up front, expensive hardware might be idle at some times. AWS offers a pay-as-you-go service wherein you can provision resources based on changing business needs. In addition to the compute resources, you can provision storage, database, and other high-level application components.  Scaling can be done in two ways; vertical scaling and horizontal scaling. For vertical scaling, you upgrade the configuration so that the system supports extra load. Horizontal scaling is where you add more components such as hard drives to an array.
+In addition to scaling, you should consider stateless and stateful components. Stateless applications don’t store session information. It means the application provides the same information for any user at any time. For stateless components, you can add resources easily. Stateful components, on the other hand, store session information. Databases require stateful components. As a real-time example, e-commerce sites should store the user information so that they can offer customized prices. Similarly, most apps require sign-in from a user so that the personalized dashboard is offered to that user.
+Choosing the right services
+AWS offers more than 90 services. So, choosing the right services for right tasks is the key. For computing resources, you can choose Amazon Elastic Compute Cloud (Amazon EC2). Amazon Machine Image (AMI) can be used to recreate the configurational instances at any time. For storage purpose, you have Amazon Elastic Block Store (EBS). Snapshots of EBS are stored in Amazon S3. Amazon RDS enables you to store and manage data. Similarly, Amazon CloudFormation offers an on-demand IDE environment to develop code on the go. Amazon VPC is the virtual private cloud that allows you to securely extend your private network to the cloud. Organizations that process large volumes of data should go for a distributed processing system such as Amazon SQS, Amazon Kinesis. Apache Kafka is another option for processing streaming data. To reduce latency for global users, you can use Amazon CloudFront content delivery network.
+Docker
+is a popular concept that allows developers to build and deploy applications inside a software container. Amazon offers AWS Elastic Beanstalk and
+Amazon ECS
+that allows you to build and deploy multiple Docker containers across multiple EC2 instances. Using Amazon CloudWatch, you can monitor and manage AWS cloud resources from a centralized dashboard.
+Amazon offers four trusted advisor services at free of cost. These services allow you to monitor the performance, reliability, and security of your network. In addition, they help you in optimizing resource usage on AWS.
+Securing your AWS infrastructure
+Your AWS account is the key that opens up a whole new world of cloud networks. So, using the root account credentials for regular activities is not a good idea. Instead, you can create one or more
+IAM
+users who can interact with AWS for daily activities. Secondly, providing privileged based access to your AWS networks is recommended. You can distribute services among different groups and provide access to secure processes only to a defined range of IP addresses so that the outside traffic is denied access to those processes.
+Having a proper backup and recovery plan is the key. Backup instances using EBS or a 3
+rd
+party backup tool and ensure that your recovery plan offers business continuity. Critical application components can be deployed across multiple time zones so that they can be replicated accordingly.
+At the outset, AWS looks easy and pretty straightforward to use. However, without proper knowledge of the system, you can run into huge expenses. This is where CloudTern comes to the rescue. CloudTern AWS Managed Services provides customized software solutions tailored-made for your organization. With CloudTern Managed Services, you can better control cloud costs, improve operational efficiencies while securely processing your applications. Most importantly, you can concentrate on your core business processes while we take care of your cloud.
+Read More
+Share
+September 3, 2017
+by
+Ramu Kambalapuram
+Blog
+Create AWS AMI with custom SSH username and password
+Introduction
+EC2 instance that is launched with Amazon Linux AMI will come up with ec2-user and you can only SSH into that instance with Private Key.
+Need
+We wanted an Amazon Linux AMI (Base Image) with default username (similar to ec2-user) and that should allow SSH login with a password.
+SSH login with a password is also a requirement for authenticating user login with OpenLDAP Server. That way our IT Operations need not remember new login information.  They can use their existing logins.
+Solution
+Launch Amazon Linux AMI micro instance.
+Connect to instance with private key
+Create SSH User and give sudo permission  (similar to ec2-user)
+sudo useradd -s /bin/bash -m -d /home/<ssh-user-home-directory> -g root <ssh-user-name>
+sudo passwd <ssh-user-name>
+Enable Password login for SSH (add following snippet of code at the end of /etc/rc.local file)
+if grep -Fxq “PasswordAuthentication no” /etc/ssh/sshd_config
+then
+#This instance launched for this first time, pleae enable SSH with password login
+sed -i ‘s/^PasswordAuthentication.*/PasswordAuthentication yes/’ /etc/ssh/sshd_config
+/etc/init.d/sshd restart
+fi
+This piece of code will change
+PasswordAuthentication
+to
+yes
+in
+sshd_config
+file. (If we don’t do       this every time we create Instance with AMI that will overwrite sshd_config file)
+Stop the instance
+Select Instance and create Image
+Now launch Instance with above created AMI.
+After Instance is launched you can log in with ssh username you have created in step 3.
+Read More
+Share
+August 22, 2017
+by
+Ramu Kambalapuram
+Blog
+Path to the AWS Cloud
+Introduction : Path to the AWS Cloud
+You’ve heard of software as a service (SaaS), Infrastructure as a Service, Platform as a Service, There is XaaS to describe Anything as a Service.
+Now you can provide all of your company’s functions “as a Service” – Your Company as a Service (YCaaS).
+You will be more scalable, more available, more connected to employees and customers, as well as suppliers.
+Just hop on this cloud…
+This blog is written to simplify your trip to the cloud.
+It is written as a general-purpose document and specific details will vary with your needs.
+This guide is written for migration to the AWS Cloud Platform. You will need an AWS account to begin this migration.
+The result will be a very flexible and highly available platform that will host services for internal or external use.
+Services may be turned up or discontinued, temporarily or permanently, very easily.
+Services may be scaled up or down automatically to meet demands.
+Because AWS services are billed as a service,
+computing services become operational rather than a capital expense (CAPEX)
+.
+The Framework
+Exact needs will vary based on the services being migrated to the AWS Cloud.
+The benefits of a structured, reliable framework will transform your organization’s approach to planning and be offering online services.
+The AWS CAF (Cloud Adoption Framework) offers a structure for developing efficient and effective plans for cloud migration.
+With guidance and best practices available within that framework, you will build a comprehensive approach to cloud computing across your organization.
+Planning
+Using the Framework (AWS CAF) to break down complicated plans into simple areas of focus, will speed the migration and improve success.
+People, process, and technology are represented at the top level.
+The components of the focus areas include:
+Value (ROI)
+People (Roles)
+Priority and Control
+Applications and Infrastructure
+Risk and Compliance
+Operations
+Value
+, or Return on Investment, measure the monetary impact on your business.
+For customer facing services, this could mean reaching more customers faster.
+Customer engagement and meaningful transactions.
+For internal services, ease of access and pertinence of content adds value.
+People
+occupy many roles.
+Organizationally, internal stakeholders will need to be involved in decision making and in ongoing support.
+Business applications’ stakeholders have outcomes which they own in the planning stages and in the long term utilization. The content provider will have initial and ongoing responsibilities.
+The end user is dependent on the platform and the other stakeholders.
+Priority and control
+of the service are defined with the resources dedicated to the service migration and allowable disruption.
+Priorities are affected by readiness.
+New services are often easier to migrate due to the compatibility of platforms.
+These may be migrated quickly ahead of more cumbersome services.
+Mission critical services will require the resources and special attention that goes with critical status.
+Risk and compliance
+are defined by the category of the usage of the service.
+Commerce with external entities will demand PCI compliance.
+Personal information of internal entities will demand HIPPA compliance.
+CRM and general information will need copyright identification.
+Operations
+are involved in the migration phase as the process of service migration affects business operations.
+Because migration is not a day to day business process, it will require its own resources, planning, and priorities.
+These priorities affect the resources available for the migration.
+A fast migration may require more resources, people, bandwidth, communications.
+Lower priority allows for fewer resources and, typically, less disruption.
+Migration process
+Migration is a process that will ride on top of the normal business process.
+In order to successfully migrate to the cloud, all of these considerations will affect planning.
+Given priorities that are decided upon, identify the people and roles that will be involved in the migration.
+Communicate the specific outcomes the team will be responsible for.
+Be specific, gain agreement and ownership.
+Deliver the resources that the team identifies as needed to meet goals.
+This includes time.
+If the team has to be away from normal day to day responsibilities business process must be temporarily re-routed.
+This will involve support teams one level removed from the migration.
+Outsourced teams can provide temporary resources in highly specialized roles to reduce the impact on business operations.
+Do the initial planning to determine your needs.
+Choose an outsourced team based on experience in the specific roles you will need to fill.
+Integrate the imported resources with appropriate internal team members.
+Give ownership to the internal team and empower them to act when needs arise.
+Construct the entire migration model before beginning the process.
+Build the budget and prepare for the impact of resource dedication up front.
+Measure progress against the model on weekly basis.
+Communicate to the team that adjustments will be needed, and communication is the way these adjustments are dealt with.
+Remember the butterfly effect: every change will result in cascading consequences.
+With reliable communications, everyone will be more comfortable with the temporary effects of this over the top process.
+When the team and their roles are communicated, the non-human resources can be quantified.
+How much bandwidth will be required to meet identified goals?
+Is the network capable of delivering on the required bandwidth, or will infrastructure need to be upgraded?
+Consider the impact on infrastructure on critical business services that may occur during the migration.
+Be prepared for contingencies and unexpected demands.
+If network augmentation is required, how deep into your infrastructure will you need to adjust.
+As data migration paths are identified and bandwidth is dedicated, will other segments of the network be affected?
+These network augmentations have power and space impacts. Downstream, there will be additional people affected as configurations and replacement equipment are implemented.
+Peak demand capacity is often a separate planning impact.
+Peak busy hours will result in oversubscription of available bandwidth.
+With oversubscription, will come service impact.
+The impact is easily underestimated because saturation will lengthen the impact duration.
+Along with the capacity planning, there needs to be service level consideration.
+What tolerance to latency will the user base have?
+Availability planning during migration will determine impact in the event of the disaster.
+Business continuity plans may need to be modified during the migration period.
+Existing failover functions will not include the migration paths.
+If not addressed in advance, an unplanned outage will disrupt your migration and likely have a negative business impact.
+Whatever availabilities are associated with your services which are migrating will need planning for the migration.
+The cost of maintaining duplicate services during migration include licensing.
+When two systems are running simultaneously, the license expense is double.
+Depending on demand, and with planning, some efficiencies may keep this cost under the maximum.
+While this may be an opportunity to eliminate some marginally needed or legacy expenses.
+In the long run, you will reap the rewards.
+Savings include the server maintenance, break-fix, and upgrades, backups, both local and off-site, environmental conditioning maintenance, power savings.
+People time involved with the maintenance, break-fix, upgrades, and the bill paying for these services.
+Importantly, scalability in the AWS cloud does not require as much advanced planning, over capacity implementation and over provisioning for future expansion.
+Capacity can be reduced on the fly as well.
+The total return on investment will include a cost increase during planning and migration and long-term savings due to increased efficiencies and cost reductions.
+The total cost of ownership grows over time, but will not include associated direct and indirect costs.
+Intangible return is in technology upgrades.
+The obsoleting of capital investments will greatly decrease.
+Technology will evolve and be implemented invisibly for immediate use in the cloud platform.
+Contributors
+William
+Read More
+Share
+1
+2
+3
+4
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

@@ -1,0 +1,39 @@
+Mobile Number Portability Gateway - CloudTern Solutions
+Mobile Number Portability Gateway
+Project Name
+Mobile Number Portability Gateway
+Client
+MNVE PaaS provider Singapore
+Our Role
+Mobile number portability solution
+A Singapore-based MNVE PaaS provider chose CloudTern for its mobile number portability solution. CloudTern built an MNP system integrated with a central database and external systems that automated the MNP process while delivering a superior customer experience.
+The Challenge
+Operating within the telecom industry, MVNEs are required to comply with governing regulations. Mobile Number Portability (MNP) is a regulatory directive that requires every telecom service provider to allow customers to retain the same mobile number when they change the service provider.
+For instance, the Universal Services Directive EU 2002 urges all countries in the European Union to offer MNP service to customers. Singapore is one of the first countries that offered an MNP service in 1997.
+Service providers had a tough time exchanging information without a central database. While the current procedure involved a lot of manual tasks, it also took months to port a number. As such, the client required an automated mobile number portability system integrated with a central database to facilitate number portability for end-users.
+The Solution
+The company chose CloudTern to design an automated Mobile Number Portability (MNP) system for its telecom operations. CloudTern designed an automated system with core mobile portability features and integrated it with a central mobile database and other external systems such as billing, accounts, CRM, ERP, etc. HTML, Perl and Java were used to develop the core features of the app. Apache Tomcat was used as the application server. The central database was built and managed using Oracle 9i. The application was vigorously tested to ensure zero bugs and errors.
+When a customer wants to port an existing mobile number, he/she will access the provider site and choose the plan and subscription and contact the new service provider with the existing number. The provider then validates the customer profile and account balance and after a regular KYC process, the number is successfully ported to the new provider service.
+Key Benefits
+With a central database, it became easy for the MVNE’s service providers to exchange information, and expedite and automate the number porting process. It has been beneficial, especially for new operators as they can quickly and cost-effectively penetrate new markets and gain new subscribers from established operators. Moreover, it offers a better customer experience that results in more revenues.
+From a customer’s point of view, they are now able to seamlessly port mobile numbers and easily switch between service providers without the need to inform everyone about this change.
+Central database to exchange information
+Reduced time to port a mobile number
+Improved service quality
+Increased revenues
+Superior customer experience
+Enhanced brand image
+Prev
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

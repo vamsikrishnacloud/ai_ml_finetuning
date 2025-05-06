@@ -1,0 +1,79 @@
+Case Studies - CloudTern Solutions
+Our Success Studies
+View some of our work and case studies for clients. We will work to deliver that strategy by building out your existing campaigns, or establishing accounts at new networks.
+PC & MAC Application
+AWS
+IoT
+Mobile Application
+SaaS Platform for VOIP Service Monitoring
+AWS
+IoT
+Mobile Application
+DevOps – CI/CD AUTOMATION
+AWS
+Cloud
+Digital Service Provider
+Infrastructure as a Code (IaC) – 5G component
+AWS
+Cloud
+Digital Service Provider
+SQLServer Migration to Cloud
+AWS
+Cloud
+Digital Service Provider
+Penetration Testing for MVNE Platform
+Digital Service Provider
+Testing
+Mobile Number Portability Gateway
+Cloud
+Digital Service Provider
+Self Service Portal for MVNOs
+Cloud
+IoT
+Electronic Medical Records – EMR
+Cloud
+Healthcare
+IoT
+Remote Patient Monitoring – TeleHealth
+AI
+Cloud
+Healthcare
+IoT
+BSS Migration to AWS Cloud
+AWS
+Cloud
+Digital Service Provider
+Replaced Legacy PCRF with OpenSource PCRF using Kamailio
+5G
+Digital Service Provider
+Smart Missed Call Alert
+Digital Service Provider
+Mobile Application
+Amazon S3 Cloud Storage Solution
+AWS
+AWS Cost Optimization
+DevOps
+Unified CDR Management solution
+AWS
+Kafka
+VoIP Monitoring Platform – IoT
+AWS
+IoT
+Mobile Application
+Churn Prediction
+AI
+Machine Learning
+1
+2
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

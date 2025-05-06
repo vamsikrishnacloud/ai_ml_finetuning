@@ -1,0 +1,49 @@
+PC & MAC Application - CloudTern Solutions
+PC & MAC Application
+Industry
+Telecom
+Project
+Reply Desktop Application
+Client
+Texas-based  IoT product company
+Our Role
+App Development & Deployment
+Technologies
+WINDOWS: C#, WPF, jQuery, Highchart libraries
+MAC: SwiftUI
+The Challenge
+Create a resilient software application for Desktop in Windows & MAC focused on analyzing network statistics and call quality. The application should adeptly monitor network performance, evaluate call metrics, and provide meaningful data visualizations. Its primary goal is to guarantee top-notch network operation and exceptional call quality by diligently tracking and analyzing comprehensive data sets.
+The Solution
+Network Assessment
+Crafted as a desktop application, this tool deciphers firewall port scan outcomes. Through gauge meters, it quantifies network speed visually. Voice quality and concurrent call tracking are enabled via the PJSIP library, enhancing communication assessment. Furthermore, the application gauges internet latency using system tools, furnishing insights into network performance. This comprehensive suite empowers users regarding network health, optimizing both connectivity and communication quality.
+VOIP Quality
+Reply Point introduces ongoing call quality assessment by making backend calls every two minutes. This guarantees real-time insights for issue resolution, powered by APIs and a Time Series Database, with user-friendly High-chart visualizations.
+Call Testing
+The PJSIP library is employed to monitor simultaneous network calls. This ensures effective monitoring of multiple ongoing calls, enabling accurate assessment of call quality and performance in real-time.
+Key Benefits
+Network Analysis
+Troubleshooting
+Customizable Reporting
+Call quality
+Comprehensive Network Analysis:
+These applications offer insights into network latency, packet loss, jitter, and bandwidth usage. This aids in spotting issues, optimizing network performance, and enabling informed decisions for improved reliability and efficiency.
+Troubleshooting and Diagnostics:
+They aid in diagnosing network and call quality problems. It offers in-depth insights, helping IT experts uncover reasons for performance decline. Through data and visuals, users swiftly address issues, minimizing downtime and upholding communication excellence.
+Customizable Reporting and Visualization:
+These applications provide customizable reporting and visuals, enabling users to create detailed, visually pleasing reports, graphs, and charts. This simplifies sharing insights with non-technical stakeholders, while customizable visuals aid focused analysis and decision-making.
+Call Quality Assessment:
+These applications assess voice and video call quality, measuring MOS, jitter, packet loss, and delay. Users can identify clarity and reliability issues, benefiting VoIP-dependent businesses through real-time or post-call analysis.
+Prev
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

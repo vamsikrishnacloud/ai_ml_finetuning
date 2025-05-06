@@ -1,0 +1,57 @@
+Replaced Legacy PCRF with OpenSource PCRF using Kamailio - CloudTern Solutions
+Replaced Legacy PCRF with OpenSource PCRF using Kamailio
+Project Name
+Replaced Legacy PCRF with OpenSource PCRF using Kamailio
+Client
+US Based CPaas
+Our Role
+Lower TCO and increased ROI
+“Being dependant on our legacy PCRF vendor’s R&D team to launch new services was expensive and time-consuming. CloudTern helped us to make a smooth transition to the open-source PCRF, enabling us to gain faster time to market and lower TCO. “
+Dan Anderson
+President
+A Leading CPaaS provider in the US chose CloudTern as its Systems Integrator for its digital transformation journey. CloudTern designed an open-source PCRF solution and helped the company move their legacy PCRF platform to the cloud and thereby enabling lower TCO and increased ROI.
+Company Overview
+The client is a leading Communications Platform as a Service (CPaaS) provider in the US. Leveraging the cloud revolution, the company offers APIs, software tools, pre-built apps and code snippets that enable businesses to add voice, messaging and video services to existing applications and services on the go. As such, telecom operators don’t have to purchase complete business communication solutions with predefined features but cherry-pick required communication features and embed them into their processes as and when required.  Text-based SMS, social media messaging, multimedia messaging, inbound routing, outbound voice calls, On-demand SIP trunking, Web-RTC calling etc. are some of the CPaaS functions that can be added to the communication stack.
+The Challenge
+As a CPaaS provider, the company offers a complete development framework for real-time communications along with documentation and support throughout the product lifecycle. With the proliferation of smart mobile devices, unlimited broadband and virtual technologies, the demand for mobile internet services is increasing everywhere.
+The Policy and Charging Rules Function server holds key to staying relevant in this dynamically changing communication environment. The PCRF server is critical in adding and configuring policies and managing Quality of Service (Q0S) for subscribers.
+However, the company was using a legacy PCRF and is heavily dependent on developers at the vendor’s side to make changes to its solutions. It was expensive and time-consuming.
+As the world is entering a 5G revolution, the company was looking for a cost-effective strategy to migrate the legacy PCRF to the cloud.
+The Solution
+The company chose CloudTern as the systems integrator to replace its legacy PCRF with an open-source digital PCRF platform. DigitalRoute platform was chosen as the enterprise software for enabling billing based on subscriptions and usage.
+CloudTern performed a detailed requirements analysis and designed the solution architecture with a 1:1 functional copy such that the same services were exactly implemented while other interfaces such as Deep Packet Inspection (DPI), Policy and Charging Enforcement Function (PCEF), provision notifications etc. are not impacted in any way.
+Right from hardware and software delivery to policy rules implementation and integration with OSS/BSS, CloudTern ensured that the entire process was smooth and seamless. In addition, CloudTern developed other services based on the company’s offerings. The entire platform was designed in less than 6 months and the PCRF migration took less than a week.
+Key Benefits
+With the digital PCRF cloud platform, the company is able to manage basic services and complex tariffs, easily adding, configuring and managing policies to stay relevant in a rapidly changing telecom environment. Complex tariffs include varying usage limits for day and night and special occasions, shared bundles, different quotas for different protocols, data packet prioritization, threshold notifications etc. 
+
+In addition, the company is able to launch new services quickly and gain faster time to market. As there is no vendor lock-in, the company is able to adjust the implementation of the solution at any point of the project while being able to scale resources on demand. With lower hardware investment and maintenance costs, the company enjoyed reduced total cost of ownership (TCO) with increased ROIs.
+Technical Benefits
+Cost-effective and seamless replacement of legacy PCRF with the digital platform
+Multi-PDP contexts using different IPs
+Single International Mobile Subscriber Identity (IMSI) running multiple sessions
+Function redirections
+Varying policies and quota limits for different times, dates and locations
+Data packet prioritization
+100% threshold notifications
+Business Benefits
+Faster time to market
+Highly flexible and scalable
+Huge cost savings on hardware and maintenance
+Simplified Management
+Easy integration with 3
+rd
+party technologies
+Prev
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

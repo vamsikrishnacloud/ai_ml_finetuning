@@ -1,0 +1,59 @@
+Beacon technology for Asset Tracking - CloudTern Solutions
+Beacon technology for Asset Tracking
+July 8, 2018
+by
+Ramu Kambalapuram
+Blog
+The advent of Internet of Things (IoT) has not only revolutionized IT networks but it also paved way for a range of new and innovative technologies. The beacon technology is one among them. Right from the time when Apple introduced the beacon technology in 2013 to till date, the technology has greatly evolved and is getting better every day. While the beacon technology was initially used by retail businesses, its functionality is now being extending to every field. Asset tracking with beacons is the new trend. Using the beacon technology, businesses are now able to implement cost-effective and highly scalable asset tracking solutions.
+An Overview of Beacons
+A beacon is a small Bluetooth-based device that is used to continuously transmit radio signals. This small form factor device contains a small radio transmitter and a battery. It uses the Bluetooth Low Energy(BLE) protocol to transmit data. As BLE consumes low energy, you can run beacons without draining out the battery. Depending on the size and functionality of the device, beacon batteries can last from 6 months to 5 years. However, it transmits low amounts of data which means you can’t transfer audio or streaming data.
+The beacon technology is similar to Near-field Communication (NFC) technology. However, the difference lies in the range. While NFC functions within 8 inches, beacons can work within a range of 70 meters.
+The State of Beacon Market
+Beacons have become the first choice for many companies when it comes to Real-Time Location System (RTLS) solutions. According to Grandview Research, the global Bluetooth beacon market is expected to reach $58.7 billion by 2025, growing at a CAGR of 95.3% between 2017 and 2025. Similarly, Allied Market Research reports that the global beacon market would reach $14.839 billion by 2024, growing at a CAGR of 61.5% between 2018 and 2024. GM Insights reports that the market value of beacons was $170 million in 2016. This value is expected to grow at a CAGR of 80% between 2017 and 2024. The retail industry is the largest market for beacons followed by the health sector.
+Source: https://www.statista.com/statistics/827293/world-beacons-technology-market-revenue-by-end-user/
+Analyst firm Statista reports that the global beacon market was valued at $519.6 million in 2016. This value is expected to reach $56.6 billion by 2026, growing at a CAGR of 59.8% between 2016 and 2026.
+The Technology behind Beacons
+Beacons perform a single task. They just send a radio signal at pre-defined intervals. BLE-enabled devices such as smartphones receive these signals and act accordingly. Each beacon is assigned with a unique identifier. So, the device transmits this unique identifier which enables the receiver to identify the location of the beacon as well as the location of the user.
+A beacon contains a small ARM (Advanced RISC machines) computer, Bluetooth connectivity module and a small battery. This small CPU runs the firmware written in low-level programming that controls the behaviour of the beacon. As the beacon’s job is to transmit its identifier, the small CPU power and battery is more than sufficient to process this data or encrypt the identifier. Inside the beacon you will find a small antenna that transmits electromagnetic waves. It uses the Bluetooth protocol. The latest Bluetooth standard is 4.2. The normal frequency of the beacon radio waves is 2.4 GHz and the maximum data limit for the 4.2 standard is 257 bytes. With such small amount of payload, beacons transmit the UUID, major, minor and the signal power. The receiving devices calculate the proximity of the beacon based on the transmitted signal power.
+Beacon transmits the following components
+Universally Unique Identifier (UUID): It is the unique identifier that differentiates your beacons from other devices outside your network.
+Major Value: It is the unsigned integer value that tells you about the group in which the beacon is placed. For instance, beacons installed in the 1st floor will have the same major value. The value can be anything between 1 and 65535.
+Minor Value: It is the unsigned integer that differentiates a beacon from a group. The value falls between 1 and 65535.
+Here is an example of a UUID:
+f626db6-3ga2-4e98-8013-bc5b71f0983c
+When you talk about a beacon, you think about a physical device. However, some smartphones can act as a transmitter as well as a receiver. For instance, Apple doesn’t offer any physical beacon. It has incorporated the beacon technology into iOS 7 operating system. With more than 200 million iOS 7 devices in the market, Apple already has a considerable amount of beacons in the market.
+How are beacons useful?
+Beacons don’t relay any important message. They simply relay their IDs. It is the job of the receiver device to apply this information into a useful solution. For instance, a retail mall installs beacons inside the mall. When a customer visits the store and browses the electronic section of the mall, the beacon installed at that place will transmit its ID. The app in the smartphone of the customer will receive the ID and identifies the location of the customer. In this case, the app identifies that the customer is at the electronics section. So, the app will send discounts and offers related to the electronic products of that mall. Moreover, these offers would be specific and customized for that customer.
+Asset tracking with Beacons
+Asset tracking and management is a key requirement for any industry. Beacons can significantly reduce the cost and complexity of this job. There are multiple ways to track assets using beacons. For instance, you can mount BLE receivers in a permanent fixture and tag assets to beacons. When an asset comes into proximity of a BLE-enabled receiver, it tracks the movement via mobile data or Wi-Fi and logs the data. You can either take action or store the information for management and analytics purposes. Using beacons, you can cost-effectively track thousands of assets in real-time, 24/7.
+There are instances wherein you cannot mount BLE receivers in permanent fixtures in temporary locations such as conference halls or function halls. In such cases, you can fix beacons in different places and track assets using a mobile app. By tagging assets to beacons, you can track each asset from the mobile app. Implementation is easy as there is no need for wiring or costly installation.
+For more accuracy and maximum coverage, you can augment the beacon setup with additional receivers. You can install fixed beacons and fixed BLE receivers and augment them with moving beacons and moving BLE receivers. This setup can be extremely useful in low-signal areas such as ICUs of a hospital or a high-security airport check points. In areas such as large construction sites, environments quickly change. As such, you need a dynamic beacon architecture. In such cases, you can complement beacons with GPS and Wi-Fi. Depending on your environment, business type and requirement, you can choose the right deployment beacon technology.
+Asset tracking with beacons is quickly gaining traction. Reports show that beacons have significantly reduced operational costs of asset management tasks. According to a Proximity Directory report, a total of 15,176,500 proximity sensors were installed globally in Q2, 2017. And, asset tracking with beacons is saving billions of dollars for the $9.1 billion logistics industry. Similarly, the health industry can save hundreds and thousands of dollars with an ROI of 275% by using asset tracking with beacons.
+The advantages of beacons are enormous. Using beacons, you can track every item in the warehouse, track vehicles within the infrastructure, track equipment and machinery in a healthcare location, track luggage trolleys in airports, railway stations etc. In addition, you can track people/employees by giving them BLE-enabled devices.
+Bluetooth 5.0 is offering additional capabilities in the form of 2x speed, 800% more broadcast messaging capacity and 4x range. As such, beacons are sure to disrupt the RTLS solutions in the coming days.
+Cloud
+Share
+Related Posts
+February 19, 2025
+Blog
+Navigating Workflow Automation in the Insurance Landscape
+February 13, 2025
+Blog
+Automating Customer Service: The Role of AI in Modern Contact Center
+January 29, 2025
+Blog
+DeepSeek-R1 Vs OpenAI: A Clash of Specialized and Versatile AI Models
+Prev
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

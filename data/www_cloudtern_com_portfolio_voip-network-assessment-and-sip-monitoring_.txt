@@ -1,0 +1,50 @@
+VoIP Network Assessment & SIP Monitoring - CloudTern Solutions
+VoIP Network Assessment & SIP Monitoring
+Industry
+Telecom
+Project
+Reply Sidekick
+Client
+Texas-based  IoT product company
+Our Role
+Embedded Software Development - IoT
+Technologies
+C, Linux Networking Protocols, Openwrt, Lua, Embedded Tools
+The Challenge
+To develop an embedded IoT system for local network monitoring, analyzing network metrics, and evaluating SIP phone quality. Utilize sensors to collect data, process it using embedded systems, and send outcomes to a central server. Employ tailored software for comprehensive analysis, aiming to enhance network performance and ensure superior call quality.
+The Solution
+Network Assessment:
+Embedded software analyzes network metrics, call quality, and SIP phones. Ethernet port collects data, processed by embedded systems, providing insights to optimize performance, troubleshoot issues, and enhance network efficiency.
+VOIP Quality:
+VOIP Quality hardware using embedded systems employs specialized components to capture and process audio data. Analog-to-digital converters sample voice signals, which are then encoded, compressed, and transmitted over the network. Embedded software analyzes metrics like jitter, latency, and packet loss, enabling real-time monitoring and quality optimization.
+Call Testing:
+The PJSIP library is employed to monitor simultaneous network calls. This ensures effective monitoring of multiple ongoing calls, enabling accurate assessment of call quality and performance in real time.
+Firewall Test:
+Sidekick conducts port scans on diverse UDP/TCP ports, including SIP ALG, UDP Timeout, Double NAT, and Packet Priority tests. This yields comprehensive Firewall metrics, enhancing customer network insights.
+SIP Monitoring:
+Sidekick employs an Ether port for WAN connection and utilizes mirror port data for thorough local network SIP phone analysis, overseeing registration and reachability. It enables seamless debugging by directly linking faulty SIP phones to mirror ports, leveraging web portal packet capture for accurate diagnostics.
+SIP Signaling:
+Sidekick securely stores all mirrored port data on an AWS server, granting customers the flexibility to access this data in multiple formats. This includes options to view packet data and download it with a variety of time frame filters, offering enhanced convenience and versatility in data analysis.
+Key Benefits
+Customized VoIP Network Assessment
+This functionality is crafted to pinpoint potential concerns or essential network refinements prior to the introduction of new VoIP services. The evaluation is conducted via a specialized IoT device named Reply Sidekick.
+Troubleshooting Calls
+The solution enables retrospective troubleshooting of previous VoIP calls, aiding in identifying and analyzing issues for ongoing call quality enhancement. Moreover, it empowers IT teams to promptly address on-premises SIP phone problems, sustaining consistent call quality and overall network efficiency.
+Proactive Alerts and Real-time  Reporting
+The system provides prompt notifications and up-to-date reports encompassing aspects such as site availability, device registration, call quality, and firewall conformity. This data is easily reachable through the user's handheld device, facilitating swift responses to network issues and remote access to on-site network diagnostics.
+Convert On-prem SIP Phone Service Provider
+This feature enables smooth transitioning of on-prem SIP phone services from one provider to another. It streamlines the migration process, ensuring minimal disruptions and preserving the quality of communication during the transition.
+Prev
+Next
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.

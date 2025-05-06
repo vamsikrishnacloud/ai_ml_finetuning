@@ -1,0 +1,605 @@
+Cloud Archives - Page 6 of 6 - CloudTern Solutions
+Cloud Tag
+November 14, 2017
+by
+Ramu Kambalapuram
+Blog
+Hybrid Cloud Architecture with CISCO CSR 1000v
+Cisco CSR 1000v series is a router software appliance from Cisco. It provides enterprise routing, VPN, Firewall, IP SLA, and more.CSR 1000v can be used to connect multiple VPC across all-region in AWS Cloud and on-premise networks. Thus it can be used avoid managed VPN service from AWS.
+In AWS, you can find Cisco CSR 1000v in AWS marketplace which has 30 days free trial to test it out.
+AWS Marketplace for Cisco
+. Be aware this is not cheap, it will cost you EC2 Instance charges. All instance types are not supported for CSR 1000v. It supports only m3 and c3 instance family types.
+Cisco CSR 1000v Can be used in various network models in cloud like Transit VPC, multi-cloud Network.
+Following is the Architecture I have used to connect multiple VPC.
+The two VPC’s are one in N.Virginia region and other is in Ohio Region. And Each VPC has Internet Gateway and were connected over VPN. On Ohio region, we used AWS managed VPN service to connect VPC in N.Virginia region VPC. And On-Premise Edge Router we used Cisco RV110W small business router. In this Post, I would like to mention the steps to follow to establish VPN over two VPC’s spread in two different regions in AWS.
+Steps to create VPC’s in two regions:
+Create VPC in N.Virginia Region with CIDR 10.0.0.0/16 and attach Internet Gateway to it. you can do it from CLI or through the management console.
+aws ec2
+create
+-vpc
+--cidr-block 10.0.0.0/16 --region us-east-1
+Output
+:
+{
+"Vpc"
+: {
+"VpcId"
+:
+"vpc-848344fd"
+,
+"InstanceTenancy"
+:
+"dedicated"
+,
+"Tags"
+: [],
+"CidrBlockAssociations"
+: [
+                    {
+"AssociationId"
+:
+"vpc-cidr-assoc-8c4fb8e7"
+,
+"CidrBlock"
+:
+"10.0.0.0/16"
+,
+"CidrBlockState"
+: {
+"State"
+:
+"associated"
+}
+                    }
+                ],
+"Ipv6CidrBlockAssociationSet"
+: [],
+"State"
+:
+"pending"
+,
+"DhcpOptionsId"
+:
+"dopt-38f7a057"
+,
+"CidrBlock"
+:
+"10.0.0.0/16"
+,
+"IsDefault"
+:
+false
+}
+          }
+
+
+aws ec2
+create
+-internet-gateway
+--region us-east-1
+Output
+:
+
+          {
+"InternetGateway"
+: {
+"Tags"
+: [],
+"InternetGatewayId"
+:
+"igw-c0a643a9"
+,
+"Attachments"
+: []
+              }
+          }
+
+
+
+aws ec2 attach-internet-gateway
+--gateway-id <<IGW-ID>> --vpc-id <<VPC-ID>> --region us-east-1
+Create two subnets in N.Virginia Region VPC, one for CSR 1000v with CIDR 10.0.0.0/24 and another subnet with CIDR 10.0.1.0/24.
+aws ec2
+create
+-subnet
+--cidr-block 10.0.0.0/24 --vpc-id <<VPC-ID>> --region us-east-1
+Output
+:
+{
+"Subnet"
+: {
+"VpcId"
+:
+"vpc-a01106c2"
+,
+"AvailableIpAddressCount"
+:
+251
+,
+"MapPublicIpOnLaunch"
+:
+false
+,
+"DefaultForAz"
+:
+false
+,
+"Ipv6CidrBlockAssociationSet"
+: [],
+"State"
+:
+"pending"
+,
+"AvailabilityZone"
+:
+"us-east-1a"
+,
+"SubnetId"
+:
+"subnet-2c2de375"
+,
+"CidrBlock"
+:
+"10.0.0.0/24"
+,
+"AssignIpv6AddressOnCreation"
+:
+false
+}
+          }
+
+aws ec2
+create
+-subnet
+--cidr-block 10.0.1.0/24 --vpc-id <<VPC-ID>> --region us-east-1
+Output
+:
+{
+"Subnet"
+: {
+"VpcId"
+:
+"vpc-a01106c2"
+,
+"AvailableIpAddressCount"
+:
+251
+,
+"MapPublicIpOnLaunch"
+:
+false
+,
+"DefaultForAz"
+:
+false
+,
+"Ipv6CidrBlockAssociationSet"
+: [],
+"State"
+:
+"pending"
+,
+"AvailabilityZone"
+:
+"us-east-1b"
+,
+"SubnetId"
+:
+"subnet-2c2de375"
+,
+"CidrBlock"
+:
+"10.0.1.0/24"
+,
+"AssignIpv6AddressOnCreation"
+:
+false
+}
+          }
+Create Route Table in N.Virginia VPC which will have the default route to Internet Gateway.And associate CSR subnet to it.
+4. Launch the CSR 1000v from AWS MarketPlace with the one-click launch.
+Link To AWS Marketplace
+, you can ssh into the CSR 1000v instance using
+ec2-user
+.Attach Elastic IP to the CSR instance which will act as Customer Gateway in N.Virginia Region VPC. In later steps, we will configure the router to add Static routes to other subnets in VPC and setting BGP to propagate routes over VPN Connection with other VPC.
+5. In a similar fashion create VPC in AWS Ohio region with CIDR 10.1.0.0/16 And create two subnets with CIDR 10.1.0.0/24 and 10.1.1.0/24
+Steps to Create VPN connection in AWS Ohio VPC
+Create Customer Gateway. Open VPC management console at
+console.aws.amazon.com
+. In navigation pane choose Customer Gateway and then create new Customer Gateway. Enter Name, Routing type as Dynamic and EIP of the CSR 1000v instance in N.Viriginia Region VPC. ASN number is 16-bit and must be in the range of 64512 to 65534.
+Create VPG and attach to the VPC.In the Navigation Pane choose Virtual Private Gateway and create VPG.
+Now Create VPN connection. In Navigation Pane Choose VPN Connection, Create New VPN Connection. Enter the Name, VPG and Customer Gateway which we have created previously, select routing type as Dynamic and create VPN connection.
+It will take few minutes to create VPN connection. When it is ready to download the configuration for Cisco CSR from the drop-down menu.
+Steps to establish VPN Connection on CSR 1000v
+Add static routes of other subnets in VPC(N.Virginia) to CSR 1000v. Every subnet in AWS has a virtual router with IP address of Subnet CIDR +1. As CSR router will be in Subnet 10.0.0.0/24  the virtual router IP address will be 10.0.0.1. The Virtual Router on each subnet has a route to other all subnets in the VPC.
+>Configure terminal
+#ip route 10.0.1.0 255.255.255.0 10.0.0.1
+Configure BGP. Choose the ASN number which you gave while creating Customer Gateway in Ohio VPC. Above we gave 64512
+> Configure terminal
+(config)
+#router bgp 64512
+(Config-router)
+# timers bgp keepalive holdtime
+(Config-router)
+# bgp log-neighbor-changes
+(Config-router)
+# end
+This step might not be necessary. But as good practice, I have applied the above configuration before copying the configuration file that is downloaded before.
+Apply the Configurations that are downloaded previously when VPN Connections Created. After you have applied those setting on CSR you can see on the management console that both the tunnels of VPN as UP.
+Testing to check connectivity between two VPC’s
+Launch an instance in subnet1 in Ohio region VPC’s with Public IPv4. SSH into the instance and ping the CSR 1000v instance private IP.
+Similarly, you can check connectivity with Ohio Region VPC by pinging the instance in subnet1 in Ohio region VPC with its Private IP.
+Troubleshooting
+:
+> Route Propagation must be added to the route table in Ohio Region VPC.
+> You must configure CSR 1000v as NAT, so the subnets in N.Virginia region can access the hosts in Ohio region VPC via CSR 1000v. You need to Update the route table with target fo CSR 1000v instance-id after making it as NAT.
+> Allow ICMP in Security groups on all instances.
+Thanks and Regards
+Naveen
+AWS Solution Architect @CloudTern
+Read More
+Share
+September 20, 2017
+by
+Ramu Kambalapuram
+Blog
+Custom AMI with Custom hostname
+I am using Amazon web services for a while now. And using it allowed me to have hands dirty on various services. In AWS AMI’s(Amazon Machine Image) provides the information like operating system, application server, and applications to launch into the virtual server(or can be called as an instance) in the cloud. There are lots of options for selecting AMIs provided by AWS or by the community. You can choose the preferred AMI that can meet your requirements. You can customize the instance that you have launched from the AMIs provided by AWS and can create your own AMI from that.All the AMIs created by you are private by default.
+Interestingly the instances launched with Public AMIs in AWS comes with default user-name and no password authenticated which sometimes I don’t like. For example, Instances launched with Amazon Linux will have default user-name
+ec2-user
+and for Ubuntu instance default user-name is
+Ubuntu
+.
+Instance launched with Public AMIs also does not allow you change the hostname on flight using user-data. Hostname for any instance launched with Public AMI looks something like
+ip-
+<
+Private-IPv4
+>
+Example: ip-172-1-20-201
+So I have decided to create an AMI which will have default user as Naveen and password as *****. And I would like to have my instance named as myhostname.com i.e hostname. I will use a cloud config script to do that.
+cloud-init is a multi-distribution package that handles early initialization of cloud instances.More information can be found at
+Cloud-Init
+. Some of the tasks performed by cloud-init are
+Set hostname
+Set the default Locale (default user)
+Generate host private ssh keys
+Parse and handle user-data
+Custom AMI
+For creating my Custom AMI with above-mentioned changes I have followed the below steps:
+1. I have launched a t2.micro instance with Amazon Linux AMI ‘ami-4fffc834’. You can launch the instance using AWS management console or be using AWS command line(aws-cli). I have used the aws-cli to launch the instance.
+aws
+ec2
+run
+-
+instances
+--
+image
+-
+id
+ami
+-
+4fffc834
+--
+count
+1
+--
+instance
+-
+type
+t2
+.
+micro
+--
+key
+-
+name
+Naveen
+The above command will launch one t2.micro instance with the key name ‘Naveen’.
+2.  As I have launched the instance using Amazon Linux, the default user-name is ec2-user. Amazon Linux does setting default user using cloud-init. The configuration file for setting default user can be found in /etc/cloud/cloud.cfg.d/00_default.cfg. The config file looks something like below
+system_info:
+# This will affect which distro class gets used
+distro: amazon
+distro_short: amzn
+# Default user name + that default users groups (if added/used)
+default_user:
+name: ec2-user
+lock_passwd: true
+gecos: EC2 Default User
+groups: [ wheel ]
+sudo: [ "ALL=(ALL) NOPASSWD:ALL" ]
+shell: /bin/bash
+# Other config here will be given to the distro class and/or path classes
+paths:
+cloud_dir: /var/lib/cloud/
+templates_dir: /etc/cloud/templates/
+upstart_dir: /etc/init/
+package_mirrors:
+- arches: [ i386, x86_64 ]
+search:
+regional:
+- repo.%(ec2_region)s.%(services_domain)s
+- repo.%(ec2_region)s.amazonaws.com
+ssh_svcname: sshd
+The 00_default.cfg contains other things as well but I have posted only the one which needed to be changed. As we can see the default username for this distro is ec2-user. lock_passwd: true means the user who is trying to log in with the username ec2-user is not allowed to authenticate using a password.
+3. I have changed the user-name to Naveen and lock_passwd: false in the config file. But this config file does not allow entering the normal password as part of the config file. You need to give the password for the user in the hash. So to do that I have used the following commands in Ubuntu machine
+# mkpasswd comes with whois package
+sudo ap-
+get
+install whois
+#To Generate hash using mkpasswd
+mkpasswd –method=SHA-512
+#This will prompt to enter password
+#After entering password, mkpasswd will generate hash and output on console
+Ex:
+$6$G0Vu5qLWx4cZSHBx$0VYLSoIQxpLKVhlU
+.oBJdVSW7Ellswerdf.r/ZqWRuijiyTjPAXJzeGwYe1D/f94tt/tf
+Copy the above-generated hash and add it to ‘passwd’ key in the above config file. After making final changes in the config file
+system_info:
+# This will affect which distro class gets used
+distro:
+amazon
+distro_short:
+amzn
+# Default user name + that default users groups (if added/used)
+default_user:
+name:
+Naveen
+lock_passwd:
+false
+passwd:
+$6$G0Vu5qLWx4cZSHBx$0VYLSoIQxpLKVhlU.oBJdVSW7Elwerfwq.r/ZqWRuijiyTjPAXJzeGwYe1D/f94tt/tf1lXQYJtMtQLpvAqE1
+gecos:
+Modified Default User name
+groups:
+[ wheel ]
+sudo:
+[
+“ALL=(ALL:ALL) ALL”
+]
+shell:
+/bin/bash
+# Other config here will be given to the distro class and/or path classes
+paths:
+cloud_dir:
+/var/lib/cloud/
+templates_dir:
+/etc/cloud/templates/
+upstart_dir:
+/etc/init/
+package_mirrors:
+–
+arches:
+[ i386, x86_64 ]
+search:
+regional:
+– repo.
+%(ec2_region)
+s.
+%(services_domain)
+s           – repo.
+%(ec2_region)
+s.amazonaws.com
+ssh_svcname:
+sshd
+4. Finally, i have made the following changes in rc.local which will change the behavior of ssh service to accept password authentication. And change the preserve_hostname to false in /etc/cloud.cfg
+if
+grep -Fxq
+“PasswordAuthentication no”
+/etc/ssh/sshd_config
+then
+sed -i
+‘s/^PasswordAuthentication.*/PasswordAuthentication yes/’
+/etc/ssh/sshd_config  /etc/init.d/sshd restart
+fi
+With these changes above I have achieved adding default user-name with Naveen and with the default password. With changes above to the instance above I have created an AMI from the instance using aws-cli
+aws
+ec2
+create
+-
+image
+--
+instance
+-
+id
+i
+-
+09ebf4e320b0cadca
+--
+name
+"ONE_AMI"
+
+Output:
+{
+"ImageId"
+:
+"ami-ebec0c91"
+}
+#Cloud-config for setting hostname
+With the Customized i can launch the instance with user-name Naveen but still, the hostname will be in the format like IP-<Private-IPv4>. So  I have used the below cloud-config script to change the hostname.
+#cloud-config
+#set the hostmachine name
+fqdn: myhostname.com
+#Add additional users for the machine
+users:
+ - name: sysadmin
+   groups: [root,wheel]
+   passwd:
+$6$G0Vu5qLWx4cZSHBx$0VYLSoIQxpLKVhlU
+.oBJdVSW7EllsvFybq.r/ZqWRuijiyTjPAXJzeGwYe1D/f94tt/tf1lXQYJtMtQLpvAqE1
+   sudo: ALL=(ALL:ALL) ALL
+#Final Message
+final_message:
+"The system is finally up xcvxxxxxxxxxxxccccccccccccccccccccccc, after
+$UPTIME
+seconds"
+The above script will create the instance with hostname myhostname.com and create a user sysadmin. The above script will be passed as part of user-data when launching an instance
+aws
+ec2
+run
+-
+instance
+--
+image
+-
+id
+ami
+-
+4240a138
+--
+count
+1
+--
+intance
+-
+type
+t2
+.
+micro
+--
+user
+-
+data
+file://cloud
+.
+cfg
+The above launch an instance without Key pair which means I can only log into the instance using the default user Naveen or using a username we have created in cloud configuration script that was passed a user-data.
+Finally with this i have the instance with my custom default user-name and password, and a hostname with myhostname.com.
+Read More
+Share
+August 22, 2017
+by
+Ramu Kambalapuram
+Blog
+Path to the AWS Cloud
+Introduction : Path to the AWS Cloud
+You’ve heard of software as a service (SaaS), Infrastructure as a Service, Platform as a Service, There is XaaS to describe Anything as a Service.
+Now you can provide all of your company’s functions “as a Service” – Your Company as a Service (YCaaS).
+You will be more scalable, more available, more connected to employees and customers, as well as suppliers.
+Just hop on this cloud…
+This blog is written to simplify your trip to the cloud.
+It is written as a general-purpose document and specific details will vary with your needs.
+This guide is written for migration to the AWS Cloud Platform. You will need an AWS account to begin this migration.
+The result will be a very flexible and highly available platform that will host services for internal or external use.
+Services may be turned up or discontinued, temporarily or permanently, very easily.
+Services may be scaled up or down automatically to meet demands.
+Because AWS services are billed as a service,
+computing services become operational rather than a capital expense (CAPEX)
+.
+The Framework
+Exact needs will vary based on the services being migrated to the AWS Cloud.
+The benefits of a structured, reliable framework will transform your organization’s approach to planning and be offering online services.
+The AWS CAF (Cloud Adoption Framework) offers a structure for developing efficient and effective plans for cloud migration.
+With guidance and best practices available within that framework, you will build a comprehensive approach to cloud computing across your organization.
+Planning
+Using the Framework (AWS CAF) to break down complicated plans into simple areas of focus, will speed the migration and improve success.
+People, process, and technology are represented at the top level.
+The components of the focus areas include:
+Value (ROI)
+People (Roles)
+Priority and Control
+Applications and Infrastructure
+Risk and Compliance
+Operations
+Value
+, or Return on Investment, measure the monetary impact on your business.
+For customer facing services, this could mean reaching more customers faster.
+Customer engagement and meaningful transactions.
+For internal services, ease of access and pertinence of content adds value.
+People
+occupy many roles.
+Organizationally, internal stakeholders will need to be involved in decision making and in ongoing support.
+Business applications’ stakeholders have outcomes which they own in the planning stages and in the long term utilization. The content provider will have initial and ongoing responsibilities.
+The end user is dependent on the platform and the other stakeholders.
+Priority and control
+of the service are defined with the resources dedicated to the service migration and allowable disruption.
+Priorities are affected by readiness.
+New services are often easier to migrate due to the compatibility of platforms.
+These may be migrated quickly ahead of more cumbersome services.
+Mission critical services will require the resources and special attention that goes with critical status.
+Risk and compliance
+are defined by the category of the usage of the service.
+Commerce with external entities will demand PCI compliance.
+Personal information of internal entities will demand HIPPA compliance.
+CRM and general information will need copyright identification.
+Operations
+are involved in the migration phase as the process of service migration affects business operations.
+Because migration is not a day to day business process, it will require its own resources, planning, and priorities.
+These priorities affect the resources available for the migration.
+A fast migration may require more resources, people, bandwidth, communications.
+Lower priority allows for fewer resources and, typically, less disruption.
+Migration process
+Migration is a process that will ride on top of the normal business process.
+In order to successfully migrate to the cloud, all of these considerations will affect planning.
+Given priorities that are decided upon, identify the people and roles that will be involved in the migration.
+Communicate the specific outcomes the team will be responsible for.
+Be specific, gain agreement and ownership.
+Deliver the resources that the team identifies as needed to meet goals.
+This includes time.
+If the team has to be away from normal day to day responsibilities business process must be temporarily re-routed.
+This will involve support teams one level removed from the migration.
+Outsourced teams can provide temporary resources in highly specialized roles to reduce the impact on business operations.
+Do the initial planning to determine your needs.
+Choose an outsourced team based on experience in the specific roles you will need to fill.
+Integrate the imported resources with appropriate internal team members.
+Give ownership to the internal team and empower them to act when needs arise.
+Construct the entire migration model before beginning the process.
+Build the budget and prepare for the impact of resource dedication up front.
+Measure progress against the model on weekly basis.
+Communicate to the team that adjustments will be needed, and communication is the way these adjustments are dealt with.
+Remember the butterfly effect: every change will result in cascading consequences.
+With reliable communications, everyone will be more comfortable with the temporary effects of this over the top process.
+When the team and their roles are communicated, the non-human resources can be quantified.
+How much bandwidth will be required to meet identified goals?
+Is the network capable of delivering on the required bandwidth, or will infrastructure need to be upgraded?
+Consider the impact on infrastructure on critical business services that may occur during the migration.
+Be prepared for contingencies and unexpected demands.
+If network augmentation is required, how deep into your infrastructure will you need to adjust.
+As data migration paths are identified and bandwidth is dedicated, will other segments of the network be affected?
+These network augmentations have power and space impacts. Downstream, there will be additional people affected as configurations and replacement equipment are implemented.
+Peak demand capacity is often a separate planning impact.
+Peak busy hours will result in oversubscription of available bandwidth.
+With oversubscription, will come service impact.
+The impact is easily underestimated because saturation will lengthen the impact duration.
+Along with the capacity planning, there needs to be service level consideration.
+What tolerance to latency will the user base have?
+Availability planning during migration will determine impact in the event of the disaster.
+Business continuity plans may need to be modified during the migration period.
+Existing failover functions will not include the migration paths.
+If not addressed in advance, an unplanned outage will disrupt your migration and likely have a negative business impact.
+Whatever availabilities are associated with your services which are migrating will need planning for the migration.
+The cost of maintaining duplicate services during migration include licensing.
+When two systems are running simultaneously, the license expense is double.
+Depending on demand, and with planning, some efficiencies may keep this cost under the maximum.
+While this may be an opportunity to eliminate some marginally needed or legacy expenses.
+In the long run, you will reap the rewards.
+Savings include the server maintenance, break-fix, and upgrades, backups, both local and off-site, environmental conditioning maintenance, power savings.
+People time involved with the maintenance, break-fix, upgrades, and the bill paying for these services.
+Importantly, scalability in the AWS cloud does not require as much advanced planning, over capacity implementation and over provisioning for future expansion.
+Capacity can be reduced on the fly as well.
+The total return on investment will include a cost increase during planning and migration and long-term savings due to increased efficiencies and cost reductions.
+The total cost of ownership grows over time, but will not include associated direct and indirect costs.
+Intangible return is in technology upgrades.
+The obsoleting of capital investments will greatly decrease.
+Technology will evolve and be implemented invisibly for immediate use in the cloud platform.
+Contributors
+William
+Read More
+Share
+1
+2
+3
+4
+5
+6
+CloudTern offers highly scalable software solutions that enable organizations to securely drive innovation into business processes
+Contacts
++1 (945) 216-6923
+info@cloudtern.com
+8105 Rasor Blvd Ste 236
+Plano, TX – 75024
+Linkedin-in
+Twitter
+Instagram
+Services
+Quick Links
+© 2025 — CloudTern. All Rights Reserved.
